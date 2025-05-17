@@ -78,3 +78,6 @@
   --depth: 0;
   --noise: 1;
 }
+
+
+html { scroll-behavior: smooth; }

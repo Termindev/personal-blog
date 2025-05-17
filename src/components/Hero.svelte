@@ -10,8 +10,8 @@
   const totalSteps: number = 20; // number of steps in morph animation
   const displayDuration: number = 2000; // display decrypted text for 2 seconds
 
-  let displayName: string = nameStates[0];
-  let displayRole: string = roleStates[0];
+  let displayName: string = $state(nameStates[0]);
+  let displayRole: string = $state(roleStates[0]);
 
   function randomLetter(): string {
     return letters.charAt(Math.floor(Math.random() * letters.length));
@@ -90,8 +90,12 @@
   });
 </script>
 
+<svelte:head>
+  <title>Termin</title>
+</svelte:head>
+
 <section
-  class="hero min-h-screen bg-base-200 relative overflow-hidden flex flex-col justify-center items-center text-center px-4"
+  class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4"
 >
   <div class="max-w-xl">
     <h1 class="text-5xl md:text-7xl font-bold mb-4">Hello!</h1>
@@ -134,3 +138,4 @@
     </div>
   </div>
 </section>
+<hr class="bg-amber-50 w-1/4 mx-auto" />
