@@ -1,9 +1,16 @@
-<section class="py-24 px-6 text-base-content text-center" id="about">
-  <div class="z-10 max-w-5xl mx-auto text-2xl md:text-3xl my-4">
-    <h2 class="text-4xl font-bold text-primary mb-2">About me</h2>
-    <h2 class="text-2xl mb-6">
-      A brief <span class="text-secondary">introduction</span> about me.
-    </h2>
+<script>
+  import Container from "./subComponents/Container.svelte";
+  import Line from "./subComponents/Line.svelte";
+  import SubTitle from "./subComponents/SubTitle.svelte";
+  import Title from "./subComponents/Title.svelte";
+</script>
+
+<Container id="about">
+  <div class="z-10 max-w-5xl mx-auto sm:text-2xl text-lg md:text-3xl my-4">
+    <Title>About me</Title>
+    <SubTitle>
+      A brief <span class="text-secondary">introduction</span> about me
+    </SubTitle>
 
     <p>
       My name’s <span class="font-bold text-accent">Mohammed</span>.
@@ -34,11 +41,12 @@
 
     <p class="text-xl md:text-2xl my-4">
       I’m also fluent in three languages! I speak
-      <span class="text-info"> Arabic</span>
+      <span class="text-info"> Arabic 🇸🇦</span>
       (which is my native language),
-      <span class="text-info"> English</span> (Which I learned in school), and
-      <span class="text-info"> Russian</span> (Which I learned myself, without a
-      tutor).
+      <span class="text-info"> English 🇬🇧</span> (Which I learned in school),
+      and
+      <span class="text-info"> Russian 🇷🇺</span> (Which I learned myself, without
+      a tutor).
     </p>
 
     <p class="text-xl md:text-2xl my-4">
@@ -47,4 +55,5 @@
       I think would be interesting to read, so I’m sure you’ll like it!
     </p>
   </div>
-</section>
+</Container>
+<Line />

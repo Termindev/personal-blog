@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import Line from "./subComponents/Line.svelte";
 
   const nameStates: string[] = ["Mohammed", "TerminDev", "trmn"];
   const roleStates: string[] = ["student", "Developer", "hacker"];
@@ -138,4 +139,4 @@
     </div>
   </div>
 </section>
-<hr class="bg-amber-50 w-1/4 mx-auto" />
+<Line />
