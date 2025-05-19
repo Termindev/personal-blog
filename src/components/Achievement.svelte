@@ -1,7 +1,5 @@
 <script lang="ts">
-  export let name: string;
-  export let img: string;
-  export let honor: string;
+  let { name, img, honor } = $props();
 </script>
 
 <div

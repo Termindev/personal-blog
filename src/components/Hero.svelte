@@ -5,8 +5,7 @@
   const nameStates: string[] = ["Mohammed", "TerminDev", "trmn"];
   const roleStates: string[] = ["student", "Developer", "hacker"];
 
-  const letters: string =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const letters: string = "0123456789qwertyuiopasdfghjklzxcvbnm!?></a`~+*=@#$%";
   const animStepTime: number = 50; // ms per animation step
   const totalSteps: number = 20; // number of steps in morph animation
   const displayDuration: number = 2000; // display decrypted text for 2 seconds
