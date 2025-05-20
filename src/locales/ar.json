@@ -1,72 +1,74 @@
 {
-  "dir": "ltr",
+  "dir": "rtl",
   "projects": {
     "projects": [
       {
-        "desc": "A website made as a guide to help people who want to apply to universities in Russia.",
+        "desc": "موقع إلكتروني مصمم كدليل لمساعدة الراغبين بالتقديم للجامعات في روسيا.",
         "name": "Way To Russia",
         "link": "https://waytoru.vercel.app/",
         "src": "https://github.com/Termindev/WTR"
       }
     ],
-    "title": "Projects",
-    "sub": "Some of the <span class='text-secondary'>projects</span> that I've worked on",
-    "view_project": "View project",
-    "view_src": "View Code"
+    "title": "المشاريع",
+    "sub": "بعض <span class='text-secondary'>المشاريع</span> التي عملت عليها",
+    "view_project": "عرض المشروع",
+    "view_src": "عرض الكود"
   },
   "nav": {
-    "blog": "Blog",
-    "name": "Termin"
+    "blog": "مقالاتي",
+    "name": "تيرمن"
   },
   "hero": {
-    "greet": "Hello!",
-    "im": "I'm",
-    "a": "a",
-    "scroll": "Scroll down",
-    "who_am_i": "Who am I?",
-    "my_blog": "My blog",
-    "names": ["Mohammed", "TerminDev", "trmn"],
-    "jobs": ["student", "developer", "hacker"],
-    "enc_str": "0123456789qwertyuiopasdfghjklzxcvbnm!?></a`~+*=@#$%"
+    "greet": "السلام عليكم!",
+    "im": "أنا",
+    "a": " ",
+    "scroll": "انتقل إلى الأسفل",
+    "who_am_i": "من أنا؟",
+    "my_blog": "مقالاتي",
+    "names": ["محمد", "تيرمن ديف", "تيرمن"],
+    "jobs": ["طالب علم", "مبرمج", "مخترق"],
+    "enc_str": "٠١٢٣٤٥٦٧٨٩ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوي!?></`~+*=@#$%"
   },
 
   "achievements": {
-    "title": "Achievements",
-    "sub": "My major academic <span class='text-secondary'>achievements</span>",
+    "title": "إنجازاتي",
+    "sub": "أهم <span class='text-secondary'>إنجازاتي</span> الأكاديمية",
     "honors": [
       {
         "name": "HSE University International Olympiad",
-        "honor": "3rd Place Winner (Informatics)",
+        "honor": "فزت بالمركز الثالث (البرمجة)",
         "img": "/images/hseinto.png"
       },
       {
         "name": "BRICS+ CTF",
-        "honor": "Finalist",
+        "honor": "تأهلت للنهائيات",
         "img": "/images/brics+ctf.png"
       },
       {
         "name": "Purple Comet! Math Meet",
-        "honor": "1st Place worldwide and nationwide",
+        "honor": "فزت بالمركز الأول عالميا",
         "img": "/images/purplecomet.png"
       }
     ]
   },
   "about": {
-    "title": "About me",
-    "sub": "A brief <span class='text-secondary'>introduction</span> about me",
-    "name": "My name’s <span class='font-bold text-accent'>Mohammed</span>.",
-    "jobs": "I’m a <span class='font-bold text-accent'>student</span> in the morning, a <span class='font-bold text-accent'>(competitive) programmer</span> in the afternoon, and a <span class='font-bold text-accent'>hacker</span> at night.",
-    "langs": "I’m also fluent in three languages! I speak <span class='text-info'> Arabic 🇸🇦</span> (which is my native language), <span class='text-info'> English 🇬🇧</span> (Which I learned in school), and <span class='text-info'> Russian 🇷🇺</span> (Which I learned myself, without a tutor).",
-    "more": "You could learn more about me in my <a href='/blog' class='link link-accent'> blog</a>, there I write whatever I think would be interesting to read, so I’m sure you’ll like it!"
+    "title": "عني",
+    "sub": "بعض <span class='text-secondary'>المعلومات</span> عني",
+    "name": "اسمي <span class='font-bold text-accent'>محمد</span>.",
+    "jobs": "أنا <span class='font-bold text-accent'>طالب</span> في النهار، و<span class='font-bold text-accent'>مبرمج (تنافسي)</span> في فترة ما بعد الظهر، و<span class='font-bold text-accent'>مخترق</span> في الليل.",
+    "langs": "أتقن أيضًا ثلاث لغات! أتحدث <span class='text-info'> العربية 🇸🇦</span> (وهي لغتي الأم)، و<span class='text-info'> الإنجليزية 🇬🇧</span> (التي تعلمتها في المدرسة)، و<span class='text-info'> الروسية 🇷🇺</span> (التي تعلمتها بنفسي، دون معلم).",
+    "more": "يمكنك التعرف علي أكثر في <a href='/blog' class='link link-accent'> مدونتي</a>، أكتب بها كل ما أود مشاركته مع العالم، لذا أنا متأكد أنها ستعجبك!"
   },
   "settings": {
-    "title": "Settings",
-    "themes": "Themes",
-    "languages": "Languages",
+    "title": "الإعدادات",
+    "themes": "السمة",
+    "languages": "اللغة",
     "langs": [
-      { "name": "Arabic", "id": "ar", "flag": "🇸🇦" },
-      { "name": "English", "id": "en", "flag": "🇬🇧" },
-      { "name": "Russian", "id": "ru", "flag": "🇷🇺" }
-    ]
+      { "name": "العربية", "id": "ar", "flag": "🇸🇦" },
+      { "name": "الإنجليزية", "id": "en", "flag": "🇬🇧" },
+      { "name": "الروسية", "id": "ru", "flag": "🇷🇺" }
+    ],
+    "dark": "داكن",
+    "light": "ساطع"
   }
 }

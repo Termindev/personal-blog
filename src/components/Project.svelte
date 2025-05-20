@@ -9,7 +9,7 @@
     <div class="flex-1 my-4">
       <h2 class="text-4xl md:text-5xl font-bold md:font-extrabold">{name}</h2>
     </div>
-    <div class="flex-1 my-4 text-xl md:text-2xl lg:mr-14">
+    <div class="flex-1 my-4 text-xl md:text-2xl lg:me-14">
       {@render children()}
     </div>
     <div class="flex-1 my-4">

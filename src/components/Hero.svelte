@@ -5,7 +5,7 @@
   const nameStates: string[] = $derived($json("hero.names")) as string[];
   const roleStates: string[] = $derived($json("hero.jobs")) as string[];
   // TODO: Fix the fact that it loops on language change
-  const letters: string = $t("hero.enc_string");
+  const letters: string = $derived($t("hero.enc_str"));
   const animStepTime: number = 50; // ms per animation step
   const totalSteps: number = 20; // number of steps in morph animation
   const displayDuration: number = 2000; // display decrypted text for 2 seconds
@@ -85,7 +85,7 @@
     }
   }
 
-  onMount(() => {
+  onMount(async () => {
     animationLoop();
   });
 </script>
@@ -105,7 +105,7 @@
     <h3 class="text-3xl md:text-5xl font-semibold mb-8">
       {$t("hero.a")}
       <span
-        class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-extrabold whitespace-pre"
+        class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-extrabold whitespace-pre mb-2"
         >{displayRole}</span
       >
     </h3>

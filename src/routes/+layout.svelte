@@ -4,18 +4,24 @@
   import Navbar from "../components/Navbar.svelte";
   import "../lib/i18n";
   import { onMount } from "svelte";
-  onMount(() => {
+  import { t } from "svelte-i18n";
+  let loaded = $state(false);
+  onMount(async () => {
     if (localStorage.getItem("lang")) {
-      locale.set(localStorage.getItem("lang"));
+      await locale.set(localStorage.getItem("lang"));
+      loaded = true;
     }
   });
   let { children } = $props();
 </script>
 
 <!-- TODO: use dir from lang store -->
+<!-- await waitLocale isn't needed, I just kept it for safety lol -->
 {#await waitLocale() then}
-  <div>
-    <Navbar />
-    {@render children()}
-  </div>
+  {#if loaded}
+    <div dir={$t("dir") as "ltr" | "rtl"}>
+      <Navbar />
+      {@render children()}
+    </div>
+  {/if}
 {/await}
