@@ -2,16 +2,16 @@
   import { onMount } from "svelte";
   import Line from "./subComponents/Line.svelte";
   import { t, json } from "svelte-i18n";
-  const nameStates: string[] = $json("hero.names") as string[];
-  const roleStates: string[] = $json("hero.jobs") as string[];
-
+  const nameStates: string[] = $derived($json("hero.names")) as string[];
+  const roleStates: string[] = $derived($json("hero.jobs")) as string[];
+  // TODO: Fix the fact that it loops on language change
   const letters: string = $t("hero.enc_string");
   const animStepTime: number = 50; // ms per animation step
   const totalSteps: number = 20; // number of steps in morph animation
   const displayDuration: number = 2000; // display decrypted text for 2 seconds
 
-  let displayName: string = $state(nameStates[0]);
-  let displayRole: string = $state(roleStates[0]);
+  let displayName: string = $derived(nameStates[0]);
+  let displayRole: string = $derived(roleStates[0]);
 
   function randomLetter(): string {
     return letters.charAt(Math.floor(Math.random() * letters.length));
@@ -94,7 +94,7 @@
   class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4"
 >
   <div class="max-w-xl">
-    <h1 class="text-5xl md:text-7xl font-bold mb-4">Hello!</h1>
+    <h1 class="text-5xl md:text-7xl font-bold mb-4">{$t("hero.greet")}</h1>
     <h2 class="text-4xl md:text-6xl font-bold mb-2">
       {$t("hero.im")}
       <span

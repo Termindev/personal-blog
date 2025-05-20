@@ -26,7 +26,7 @@
     "who_am_i": "Who am I?",
     "my_blog": "My blog",
     "names": ["Mohammed", "TerminDev", "trmn"],
-    "jobs": ["student", "Developer", "hacker"],
+    "jobs": ["student", "developer", "hacker"],
     "enc_str": "0123456789qwertyuiopasdfghjklzxcvbnm!?></a`~+*=@#$%"
   },
 
@@ -45,8 +45,8 @@
         "img": "/images/brics+ctf.png"
       },
       {
-        "name": "HSE University International Olympiad",
-        "honor": "3rd Place Winner (Informatics)",
+        "name": "Purple Comet! Math Meet",
+        "honor": "1st Place worldwide and nationwide",
         "img": "/images/purplecomet.png"
       }
     ]
@@ -60,12 +60,15 @@
     "more": "You could learn more about me in my <a href='/blog' class='link link-accent'> blog</a>, there I write whatever I think would be interesting to read, so I’m sure you’ll like it!"
   },
   "settings": {
+    "title": "Settings",
     "themes": "Themes",
     "languages": "Languages",
     "langs": [
       { "name": "Arabic", "id": "ar", "flag": "🇸🇦" },
       { "name": "English", "id": "en", "flag": "🇬🇧" },
       { "name": "Russian", "id": "ru", "flag": "🇷🇺" }
-    ]
+    ],
+    "dark": "Dark",
+    "light": "Light"
   }
 }

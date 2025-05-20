@@ -1,8 +1,8 @@
 <script lang="ts">
   import Achievement from "./Achievement.svelte";
   import { json } from "svelte-i18n";
-  let honors: { name: string; honor: string; img: string }[] = $json(
-    "achievements.honors"
+  let honors: { name: string; honor: string; img: string }[] = $derived(
+    $json("achievements.honors")
   ) as { name: string; honor: string; img: string }[];
 </script>
 
