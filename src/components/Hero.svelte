@@ -98,13 +98,15 @@
     <h2 class="text-4xl md:text-6xl font-bold mb-2">
       {$t("hero.im")}
       <span
-        class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent whitespace-pre"
+        class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-extrabold whitespace-pre"
         >{displayName}</span
       >
     </h2>
     <h3 class="text-3xl md:text-5xl font-semibold mb-8">
       {$t("hero.a")}
-      <span class="text-purple-400 font-bold whitespace-pre">{displayRole}</span
+      <span
+        class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-extrabold whitespace-pre"
+        >{displayRole}</span
       >
     </h3>
 

@@ -13,10 +13,10 @@
       {@render children()}
     </div>
     <div class="flex-1 my-4">
-      <Button link={srcLink} img="/svg/gh.svg" alt="github"
+      <Button link={srcLink} img="/svg/gh" alt="github"
         >{$t("projects.view_src")}</Button
       >
-      <Button link={siteLink} img="/svg/link.svg" alt="link"
+      <Button link={siteLink} img="/svg/link" alt="link"
         >{$t("projects.view_project")}</Button
       >
     </div>

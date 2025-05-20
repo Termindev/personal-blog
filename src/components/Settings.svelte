@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { locale, json, t } from "svelte-i18n";
+  import { theme } from "$lib/store";
+
   let langs: { name: string; id: string; flag: string }[] = $derived(
     $json("settings.langs")
   ) as {
@@ -7,6 +10,25 @@
     id: string;
     flag: string;
   }[];
+
+  let light: HTMLInputElement;
+  let dark: HTMLInputElement;
+
+  onMount(() => {
+    theme.update(() => localStorage.getItem("theme") || "dark");
+    if ($theme == "dark") {
+      dark.checked = true;
+      light.checked = false;
+    } else {
+      dark.checked = false;
+      light.checked = true;
+    }
+  });
+
+  let updateTheme = (newTheme: string) => {
+    theme.update(() => newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 </script>
 
 <div class="dropdown dropdown-end">
@@ -14,7 +36,7 @@
   <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
   <ul
     tabindex="0"
-    class="dropdown-content menu bg-base-200/70 rounded-lg z-1 w-52 p-2 shadow-sm"
+    class="dropdown-content menu bg-base-200/90 rounded-lg z-1 w-52 p-2 shadow-sm"
   >
     <h1 class="text-lg mx-auto">{$t("settings.languages")}</h1>
     {#each langs as lang}
@@ -44,6 +66,8 @@
         class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
         aria-label={$t("settings.dark")}
         value="Default"
+        onchange={() => updateTheme("dark")}
+        bind:this={dark}
       />
     </li>
     <li>
@@ -51,8 +75,10 @@
         type="radio"
         name="theme-dropdown"
         class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+        onchange={() => updateTheme("mylight")}
         aria-label={$t("settings.light")}
         value="mylight"
+        bind:this={light}
       />
     </li>
   </ul>
