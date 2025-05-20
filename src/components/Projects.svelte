@@ -10,7 +10,7 @@
     name: string;
     link: string;
     src: string;
-  }[] = $json("projects.projects") as {
+  }[] = $derived($json("projects.projects")) as {
     desc: string;
     name: string;
     link: string;
