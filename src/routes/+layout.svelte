@@ -9,8 +9,8 @@
   onMount(async () => {
     if (localStorage.getItem("lang")) {
       await locale.set(localStorage.getItem("lang"));
-      loaded = true;
     }
+    loaded = true;
   });
   let { children } = $props();
 </script>
