@@ -3,7 +3,9 @@
   import { t } from "svelte-i18n";
 </script>
 
-<div class="navbar shadow-sm px-4">
+<div
+  class="navbar fixed top-0 z-50 w-full shadow-sm px-4 bg-base-100 border-b border-base-300/80"
+>
   <div class="w-full max-w-7xl mx-auto flex justify-between items-center">
     <div class="navbar-start">
       <a class="text-xl" href="/">{$t("nav.name")}</a>
@@ -16,4 +18,3 @@
     </div>
   </div>
 </div>
-<hr class="opacity-12" />
