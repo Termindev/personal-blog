@@ -5,6 +5,10 @@
   import Projects from "../components/Projects.svelte";
 </script>
 
+<svelte:head>
+  <title>Termin</title>
+</svelte:head>
+
 <Hero />
 <Achievements />
 <AboutMe />

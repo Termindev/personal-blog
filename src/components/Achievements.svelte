@@ -4,13 +4,14 @@
   import Line from "./subComponents/Line.svelte";
   import SubTitle from "./subComponents/SubTitle.svelte";
   import Title from "./subComponents/Title.svelte";
+  import { t } from "svelte-i18n";
 </script>
 
 <Container id="achievements">
   <div class="z-10 max-w-5xl mx-auto text-2xl md:text-3xl my-4 relative">
-    <Title>Achievements</Title>
+    <Title>{$t("achievements.title")}</Title>
     <SubTitle>
-      My major academic <span class="text-secondary">achievements</span>
+      {@html $t("achievements.sub")}
     </SubTitle>
 
     <div class="relative flex overflow-x-hidden">

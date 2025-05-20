@@ -1,6 +1,7 @@
 <script>
   import Button from "./subComponents/Button.svelte";
   let { srcLink, children, siteLink, name } = $props();
+  import { t } from "svelte-i18n";
 </script>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 rounded-lg text-start">
@@ -12,9 +13,11 @@
       {@render children()}
     </div>
     <div class="flex-1 my-4">
-      <Button link={srcLink} img="/svg/gh.svg" alt="github">View source</Button>
+      <Button link={srcLink} img="/svg/gh.svg" alt="github"
+        >{$t("projects.view_src")}</Button
+      >
       <Button link={siteLink} img="/svg/link.svg" alt="link"
-        >View project</Button
+        >{$t("projects.view_project")}</Button
       >
     </div>
   </div>

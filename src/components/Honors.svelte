@@ -1,15 +1,11 @@
-<script>
+<script lang="ts">
   import Achievement from "./Achievement.svelte";
+  import { json } from "svelte-i18n";
+  let honors: { name: string; honor: string; img: string }[] = $json(
+    "achievements.honors"
+  ) as { name: string; honor: string; img: string }[];
 </script>
 
-<Achievement
-  img="/images/hseinto.png"
-  name="HSE University International Olympiad"
-  honor="3rd Place Winner (Informatics)"
-/>
-<Achievement img="/images/brics+ctf.png" name="BRICS+ CTF" honor="Finalist" />
-<Achievement
-  img="/images/purplecomet.png"
-  name="Purple Comet! Math Meet"
-  honor="Top 1 worldwide and nationwide"
-/>
+{#each honors as honor}
+  <Achievement img={honor.img} name={honor.name} honor={honor.honor} />
+{/each}

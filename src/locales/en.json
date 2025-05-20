@@ -1,0 +1,71 @@
+{
+  "dir": "ltr",
+  "projects": {
+    "projects": [
+      {
+        "desc": "A website made as a guide to help people who want to apply to universities in Russia.",
+        "name": "Way To Russia",
+        "link": "https://waytoru.vercel.app/",
+        "src": "https://github.com/Termindev/WTR"
+      }
+    ],
+    "title": "Projects",
+    "sub": "Some of the <span class='text-secondary'>projects</span> that I've worked on",
+    "view_project": "View project",
+    "view_src": "View Code"
+  },
+  "nav": {
+    "blog": "Blog",
+    "name": "Termin"
+  },
+  "hero": {
+    "greet": "Hello!",
+    "im": "I'm",
+    "a": "a",
+    "scroll": "Scroll down",
+    "who_am_i": "Who am I?",
+    "my_blog": "My blog",
+    "names": ["Mohammed", "TerminDev", "trmn"],
+    "jobs": ["student", "Developer", "hacker"],
+    "enc_str": "0123456789qwertyuiopasdfghjklzxcvbnm!?></a`~+*=@#$%"
+  },
+
+  "achievements": {
+    "title": "Achievements",
+    "sub": "My major academic <span class='text-secondary'>achievements</span>",
+    "honors": [
+      {
+        "name": "HSE University International Olympiad",
+        "honor": "3rd Place Winner (Informatics)",
+        "img": "/images/hseinto.png"
+      },
+      {
+        "name": "BRICS+ CTF",
+        "honor": "Finalist",
+        "img": "/images/brics+ctf.png"
+      },
+      {
+        "name": "HSE University International Olympiad",
+        "honor": "3rd Place Winner (Informatics)",
+        "img": "/images/purplecomet.png"
+      }
+    ]
+  },
+  "about": {
+    "title": "About me",
+    "sub": "A brief <span class='text-secondary'>introduction</span> about me",
+    "name": "My name’s <span class='font-bold text-accent'>Mohammed</span>.",
+    "jobs": "I’m a <span class='font-bold text-accent'>student</span> in the morning, a <span class='font-bold text-accent'>(competitive) programmer</span> in the afternoon, and a <span class='font-bold text-accent'>hacker</span> at night.",
+    "langs": "I’m also fluent in three languages! I speak <span class='text-info'> Arabic 🇸🇦</span> (which is my native language), <span class='text-info'> English 🇬🇧</span> (Which I learned in school), and <span class='text-info'> Russian 🇷🇺</span> (Which I learned myself, without a tutor).",
+    "more": "You could learn more about me in my <a href='/blog' class='link link-accent'> blog</a>, there I write whatever I think would be interesting to read, so I’m sure you’ll like it!"
+  },
+  "settings": {
+    "themes": "Themes",
+    "languages": "Languages",
+    "langs": [
+      { "name": "Arabic", "id": "ar", "flag": "🇸🇦" },
+      { "name": "English", "id": "en", "flag": "🇬🇧" },
+      { "name": "Russian", "id": "ru", "flag": "🇷🇺" }
+    ]
+  }
+}

@@ -26,10 +26,12 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"es5-ext",
 			"esbuild"
 		]
 	},
 	"dependencies": {
-		"daisyui": "^5.0.35"
+		"daisyui": "^5.0.35",
+		"svelte-i18n": "^4.0.1"
 	}
 }

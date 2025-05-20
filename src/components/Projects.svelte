@@ -1,24 +1,38 @@
-<script>
+<script lang="ts">
   import Project from "./Project.svelte";
   import Container from "./subComponents/Container.svelte";
   import Line from "./subComponents/Line.svelte";
   import SubTitle from "./subComponents/SubTitle.svelte";
   import Title from "./subComponents/Title.svelte";
+  import { t, json } from "svelte-i18n";
+  let projects: {
+    desc: string;
+    name: string;
+    link: string;
+    src: string;
+  }[] = $json("projects.projects") as {
+    desc: string;
+    name: string;
+    link: string;
+    src: string;
+  }[];
 </script>
 
 <Container id="projects">
-  <Title>Projects</Title>
-  <SubTitle
-    >Some of the <span class="text-secondary">projects</span> I've worked on</SubTitle
-  >
+  <Title>{$t("projects.title")}</Title>
+  <SubTitle>
+    {@html $t("projects.sub")}
+  </SubTitle>
   <div>
-    <Project
-      name="Way To Russia"
-      srcLink="https://github.com/Termindev/WTR"
-      siteLink="https://waytoru.vercel.app/"
-      >A website made as a guide to help people who want to apply to
-      universities in Russia.</Project
-    >
+    {#each projects as project}
+      <Project
+        name={project.name}
+        srcLink={project.src}
+        siteLink={project.link}
+      >
+        {project.desc}
+      </Project>
+    {/each}
   </div>
 </Container>
 <Line />

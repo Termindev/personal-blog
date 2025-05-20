@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Line from "./subComponents/Line.svelte";
+  import { t, json } from "svelte-i18n";
+  const nameStates: string[] = $json("hero.names") as string[];
+  const roleStates: string[] = $json("hero.jobs") as string[];
 
-  const nameStates: string[] = ["Mohammed", "TerminDev", "trmn"];
-  const roleStates: string[] = ["student", "Developer", "hacker"];
-
-  const letters: string = "0123456789qwertyuiopasdfghjklzxcvbnm!?></a`~+*=@#$%";
+  const letters: string = $t("hero.enc_string");
   const animStepTime: number = 50; // ms per animation step
   const totalSteps: number = 20; // number of steps in morph animation
   const displayDuration: number = 2000; // display decrypted text for 2 seconds
@@ -90,33 +90,30 @@
   });
 </script>
 
-<svelte:head>
-  <title>Termin</title>
-</svelte:head>
-
 <section
   class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4"
 >
   <div class="max-w-xl">
     <h1 class="text-5xl md:text-7xl font-bold mb-4">Hello!</h1>
     <h2 class="text-4xl md:text-6xl font-bold mb-2">
-      I’m
+      {$t("hero.im")}
       <span
         class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent whitespace-pre"
         >{displayName}</span
       >
     </h2>
     <h3 class="text-3xl md:text-5xl font-semibold mb-8">
-      a <span class="text-purple-400 font-bold whitespace-pre"
-        >{displayRole}</span
+      {$t("hero.a")}
+      <span class="text-purple-400 font-bold whitespace-pre">{displayRole}</span
       >
     </h3>
 
     <div class="flex justify-center gap-4">
-      <a href="/blog" class="btn btn-primary px-6 py-3 font-semibold">My blog</a
+      <a href="/blog" class="btn btn-primary px-6 py-3 font-semibold"
+        >{$t("hero.my_blog")}</a
       >
       <a href="#about" class="btn btn-secondary px-6 py-3 font-semibold"
-        >Who am I?</a
+        >{$t("hero.who_am_i")}</a
       >
     </div>
 
@@ -134,7 +131,7 @@
           d="M19 9l-7 7-7-7"
         />
       </svg>
-      <span class="text-sm mt-1">Scroll down</span>
+      <span class="text-sm mt-1">{$t("hero.scroll")}</span>
     </div>
   </div>
 </section>
