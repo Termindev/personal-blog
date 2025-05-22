@@ -77,5 +77,9 @@
     "sub": "How to <span class='text-secondary'>reach</span> out?",
     "email": "Email",
     "telegram": "Telegram"
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "by": "by Termin"
   }
 }
