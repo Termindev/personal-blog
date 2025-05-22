@@ -11,7 +11,7 @@
       }
     ],
     "title": "Projects",
-    "sub": "Some of the <span class='text-secondary'>projects</span> that I've worked on",
+    "sub": "Some of the <span class=''>projects</span> that I've worked on",
     "view_project": "View project",
     "view_src": "View Code"
   },
@@ -33,7 +33,7 @@
 
   "achievements": {
     "title": "Achievements",
-    "sub": "My major academic <span class='text-secondary'>achievements</span>",
+    "sub": "My major academic <span class=''>achievements</span>",
     "honors": [
       {
         "name": "HSE University International Olympiad",
@@ -54,7 +54,7 @@
   },
   "about": {
     "title": "About me",
-    "sub": "A brief <span class='text-secondary'>introduction</span> about me",
+    "sub": "A brief <span class=''>introduction</span> about me",
     "name": "My name’s <span class='font-bold text-accent'>Mohammed</span>.",
     "jobs": "I’m a <span class='font-bold text-accent'>student</span> in the morning, a <span class='font-bold text-accent'>(competitive) programmer</span> in the afternoon, and a <span class='font-bold text-accent'>hacker</span> at night.",
     "langs": "I’m also fluent in three languages! I speak <span class='text-info'> Arabic 🇸🇦</span> (which is my native language), <span class='text-info'> English 🇬🇧</span> (Which I learned in school), and <span class='text-info'> Russian 🇷🇺</span> (Which I learned myself, without a tutor).",
@@ -74,7 +74,7 @@
   },
   "contact": {
     "title": "Contact me",
-    "sub": "How to <span class='text-secondary'>reach</span> out?",
+    "sub": "How to <span class=''>reach</span> out?",
     "email": "Email",
     "telegram": "Telegram"
   },

@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Line from "./subComponents/Line.svelte";
   import { t, json } from "svelte-i18n";
+  import { ChevronDown } from "lucide-svelte";
   const nameStates: string[] = $derived($json("hero.names")) as string[];
   const roleStates: string[] = $derived($json("hero.jobs")) as string[];
   // TODO: Fix the fact that it loops on language change
@@ -120,19 +121,7 @@
     </div>
 
     <div class="mt-16 flex flex-col items-center animate-bounce">
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
+      <ChevronDown size={30} />
       <span class="text-sm mt-1">{$t("hero.scroll")}</span>
     </div>
   </div>

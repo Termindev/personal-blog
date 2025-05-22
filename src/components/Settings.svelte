@@ -75,9 +75,9 @@
         type="radio"
         name="theme-dropdown"
         class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-        onchange={() => updateTheme("mylight")}
+        onchange={() => updateTheme("winter")}
         aria-label={$t("settings.light")}
-        value="mylight"
+        value="winter"
         bind:this={light}
       />
     </li>

@@ -11,7 +11,7 @@
       }
     ],
     "title": "المشاريع",
-    "sub": "بعض <span class='text-secondary'>المشاريع</span> التي عملت عليها",
+    "sub": "بعض <span class=''>المشاريع</span> التي عملت عليها",
     "view_project": "عرض المشروع",
     "view_src": "عرض الكود"
   },
@@ -33,7 +33,7 @@
 
   "achievements": {
     "title": "إنجازاتي",
-    "sub": "أهم <span class='text-secondary'>إنجازاتي</span> الأكاديمية",
+    "sub": "أهم <span class=''>إنجازاتي</span> الأكاديمية",
     "honors": [
       {
         "name": "HSE University International Olympiad",
@@ -54,7 +54,7 @@
   },
   "about": {
     "title": "عني",
-    "sub": "بعض <span class='text-secondary'>المعلومات</span> عني",
+    "sub": "بعض <span class=''>المعلومات</span> عني",
     "name": "اسمي <span class='font-bold text-accent'>محمد</span>.",
     "jobs": "أنا <span class='font-bold text-accent'>طالب</span> في النهار، و<span class='font-bold text-accent'>مبرمج (تنافسي)</span> في فترة ما بعد الظهر، و<span class='font-bold text-accent'>مخترق</span> في الليل.",
     "langs": "أتقن أيضًا ثلاث لغات! أتحدث <span class='text-info'> العربية 🇸🇦</span> (وهي لغتي الأم)، و<span class='text-info'> الإنجليزية 🇬🇧</span> (التي تعلمتها في المدرسة)، و<span class='text-info'> الروسية 🇷🇺</span> (التي تعلمتها بنفسي، دون معلم).",
@@ -74,7 +74,7 @@
   },
   "contact": {
     "title": "التواصل",
-    "sub": "كيف يمكنك <span class='text-secondary'>الوصول</span> إلي؟",
+    "sub": "كيف يمكنك <span class=''>الوصول</span> إلي؟",
     "email": "البريد الإلكتروني",
     "telegram": "تيليجرام"
   },
