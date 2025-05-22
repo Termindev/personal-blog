@@ -3,7 +3,7 @@
 </script>
 
 <div
-  class="card w-56 h-74 max-w-full rounded-2xl bg-accent/10 border border-primary shadow-[0_0_12px_rgba(255,255,255,0.3)] backdrop-blur-md p-4 mx-4 inline-block flex flex-col justify-between"
+  class="card w-56 h-74 max-w-full rounded-2xl bg-accent/10 border border-primary glow p-4 mx-4 inline-block flex-col justify-between"
 >
   <figure class="px-2 pt-2 flex justify-center">
     <img src={img} alt="Award Badge" class="w-32 h-32 object-contain" />

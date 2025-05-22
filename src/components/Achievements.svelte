@@ -5,6 +5,7 @@
   import SubTitle from "./subComponents/SubTitle.svelte";
   import Title from "./subComponents/Title.svelte";
   import { t } from "svelte-i18n";
+  import More from "./subComponents/More.svelte";
 </script>
 
 <Container id="achievements">
@@ -31,5 +32,6 @@
       </div>
     </div>
   </div>
+  <More />
 </Container>
 <Line />

@@ -1,5 +1,6 @@
 {
   "dir": "ltr",
+  "more": "И это ещё не всё...",
   "projects": {
     "projects": [
       {
@@ -70,5 +71,11 @@
     ],
     "dark": "Темный",
     "light": "Светлый"
+  },
+  "contact": {
+    "title": "Свяжитесь со мной",
+    "sub": "Как со мной <span class='text-secondary'>связаться</span>?",
+    "email": "Электронная почта",
+    "telegram": "Телеграм"
   }
 }

@@ -105,3 +105,8 @@ html { scroll-behavior: smooth; }
     }
   }
 }
+
+
+.glow {
+  @apply shadow-[0_0_12px_currentColor]/30 backdrop-blur-md;
+}

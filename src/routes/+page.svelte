@@ -1,6 +1,8 @@
 <script>
   import AboutMe from "../components/AboutMe.svelte";
   import Achievements from "../components/Achievements.svelte";
+  import Contact from "../components/Contact.svelte";
+  import Footer from "../components/Footer.svelte";
   import Hero from "../components/Hero.svelte";
   import Projects from "../components/Projects.svelte";
 </script>
@@ -13,3 +15,5 @@
 <Achievements />
 <AboutMe />
 <Projects />
+<Contact />
+<Footer />

@@ -1,7 +1,5 @@
 <script>
-  import { theme } from "$lib/store";
-
-  let { link, children, img, alt } = $props();
+  let { link, text, children } = $props();
 </script>
 
 <a
@@ -9,6 +7,6 @@
   class="inline-flex items-center gap-2 my-1 sm:mr-4 border-base-300 px-3 py-2 border-2 rounded-xl hover:bg-primary/10 transition-colors"
   target="_blank"
 >
-  <img src={`${img}_${$theme}.svg`} {alt} class="w-6" />
-  <span>{@render children()}</span>
+  {@render children()}
+  <span>{text}</span>
 </a>

@@ -1,5 +1,6 @@
 {
   "dir": "ltr",
+  "more": "And more coming up...",
   "projects": {
     "projects": [
       {
@@ -70,5 +71,11 @@
     ],
     "dark": "Dark",
     "light": "Light"
+  },
+  "contact": {
+    "title": "Contact me",
+    "sub": "How to <span class='text-secondary'>reach</span> out?",
+    "email": "Email",
+    "telegram": "Telegram"
   }
 }

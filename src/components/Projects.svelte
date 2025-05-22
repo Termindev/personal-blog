@@ -2,6 +2,7 @@
   import Project from "./Project.svelte";
   import Container from "./subComponents/Container.svelte";
   import Line from "./subComponents/Line.svelte";
+  import More from "./subComponents/More.svelte";
   import SubTitle from "./subComponents/SubTitle.svelte";
   import Title from "./subComponents/Title.svelte";
   import { t, json } from "svelte-i18n";
@@ -34,5 +35,6 @@
       </Project>
     {/each}
   </div>
+  <More />
 </Container>
 <Line />

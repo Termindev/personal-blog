@@ -1,5 +1,6 @@
 {
   "dir": "rtl",
+  "more": "والمزيد قريباً...",
   "projects": {
     "projects": [
       {
@@ -70,5 +71,11 @@
     ],
     "dark": "داكن",
     "light": "ساطع"
+  },
+  "contact": {
+    "title": "التواصل",
+    "sub": "كيف يمكنك <span class='text-secondary'>الوصول</span> إلي؟",
+    "email": "البريد الإلكتروني",
+    "telegram": "تيليجرام"
   }
 }
