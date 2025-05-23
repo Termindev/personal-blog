@@ -3,6 +3,7 @@
   import Line from "./subComponents/Line.svelte";
   import { t, json } from "svelte-i18n";
   import { ChevronDown } from "lucide-svelte";
+  import Bg from "./subComponents/Bg.svelte";
   const nameStates: string[] = $derived($json("hero.names")) as string[];
   const roleStates: string[] = $derived($json("hero.jobs")) as string[];
   // TODO: Fix the fact that it loops on language change
@@ -91,8 +92,9 @@
   });
 </script>
 
+<Bg />
 <section
-  class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4"
+  class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4 z-90"
 >
   <div class="max-w-xl">
     <h1 class="text-5xl md:text-7xl font-bold mb-4">{$t("hero.greet")}</h1>
