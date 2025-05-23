@@ -77,7 +77,7 @@
 
 <svg
   aria-hidden="true"
-  class="pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30 [mask-image:radial-gradient(601px_circle_at_center,white,transparent)]
+  class="pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30 combined-mask
 "
 >
   <defs>
@@ -114,3 +114,12 @@
     {/each}
   </svg>
 </svg>
+
+<style>
+  .combined-mask {
+    mask-image: radial-gradient(45vw circle at center, white, transparent),
+      radial-gradient(ellipse 100% 45vh at center, white 60%, transparent 100%);
+    mask-composite: intersect;
+    mask-mode: alpha;
+  }
+</style>
