@@ -9,7 +9,7 @@
 </script>
 
 <footer
-  class="footer footer-center p-6 mt-24 text-base-content text-sm border-t border-base-300/80"
+  class="footer footer-center p-6 mt-24 text-base-content text-sm border-t border-base-content/50"
 >
   <div>
     <div class="inline-flex items-center gap-1">
