@@ -75,10 +75,6 @@
   });
 </script>
 
-<div
-  class="absolute inset-0 z-[-1] w-full h-full blur-[70px] animate-[rotate_8s_linear_infinite] lg:-top-[85%] -top-1/2 left-1/2 lg:-translate-x-1/2 lg:opacity-30 opacity-40"
-  style="background-image:linear-gradient(#EC003F, #4F39F6);border-radius:30% 70% 70% 30%/30% 30% 70% 70%"
-></div>
 <svg
   aria-hidden="true"
   class="pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30 [mask-image:radial-gradient(601px_circle_at_center,white,transparent)]
