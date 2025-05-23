@@ -94,7 +94,7 @@
 
 <Bg />
 <section
-  class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4"
+  class="hero min-h-screen overflow-hidden flex flex-col justify-center items-center text-center px-4 relative z-10 pointer-events-auto"
 >
   <div class="max-w-xl">
     <h1 class="text-5xl md:text-7xl font-bold mb-4">{$t("hero.greet")}</h1>

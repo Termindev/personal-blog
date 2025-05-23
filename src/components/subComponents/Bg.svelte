@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-
+  import { theme } from "$lib/store";
   // Configuration - Updated for slower animation
   const GRID_SIZE = 40;
   const ANIMATION_DURATION = 10000; // Slowed down from 6000ms to 10000ms
   const MAX_OPACITY = 0.06; // Slightly reduced maximum opacity for subtle effect
   const ACTIVE_SQUARES_RATIO = 0.03; // Fewer active squares at once
-
+  let radius = $derived($theme == "dark" ? "45vw" : "70vw");
   let squares: {
     id: number;
     x: number;
@@ -14,7 +14,7 @@
     opacity: number;
     delay: number;
     active: boolean;
-  }[] = [];
+  }[] = $state([]);
   let width = 0;
   let height = 0;
   let animationFrame: number;
@@ -77,8 +77,8 @@
 
 <svg
   aria-hidden="true"
-  class="pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30 combined-mask
-"
+  class={`pointer-events-none absolute inset-0 h-full w-full  combined-mask z-0 ${$theme == "dark" ? "fill-gray-400/30 stroke-gray-400/30" : "fill-black/35 stroke-black/35"}`}
+  style="--radius: {radius};"
 >
   <defs>
     <pattern
@@ -117,7 +117,11 @@
 
 <style>
   .combined-mask {
-    mask-image: radial-gradient(45vw circle at center, white, transparent),
+    mask-image: radial-gradient(
+        var(--radius, 30vw) circle at center,
+        white,
+        transparent
+      ),
       radial-gradient(ellipse 100% 45vh at center, white 60%, transparent 100%);
     mask-composite: intersect;
     mask-mode: alpha;
