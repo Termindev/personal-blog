@@ -1,7 +1,7 @@
 <script lang="ts">
   import { locale, waitLocale } from "svelte-i18n";
   import "../app.css";
-  import Navbar from "../components/Navbar.svelte";
+  import Navbar from "$lib/components/Navbar.svelte";
   import "../lib/i18n";
   import { onMount } from "svelte";
   import { t } from "svelte-i18n";
