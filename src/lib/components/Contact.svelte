@@ -13,7 +13,7 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 text-base-content">
     <div
-      class="border text-center flex flex-col items-center justify-center w-4/5 md:w-2/3 mx-auto glow rounded-xl p-5"
+      class="border text-center flex flex-col items-center justify-center w-5/6 lg:w-2/3 mx-auto glow rounded-xl p-5"
     >
       <Mail size={48} class="text-primary mb-3" />
       <h3 class="text-xl sm:text-3xl font-semibold text-primary mb-1">
@@ -28,7 +28,7 @@
     </div>
 
     <div
-      class="border text-center flex flex-col items-center justify-center w-4/5 md:w-2/3 mx-auto glow rounded-xl p-5"
+      class="border text-center flex flex-col items-center justify-center w-5/6 lg:w-2/3 mx-auto glow rounded-xl p-5"
     >
       <span class="text-primary mb-3">
         <SiTelegram size={48} />

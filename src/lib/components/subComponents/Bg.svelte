@@ -3,9 +3,9 @@
   import { theme } from "$lib/store";
   // Configuration - Updated for slower animation
   const GRID_SIZE = 40;
-  const ANIMATION_DURATION = 10000; // Slowed down from 6000ms to 10000ms
-  const MAX_OPACITY = 0.06; // Slightly reduced maximum opacity for subtle effect
-  const ACTIVE_SQUARES_RATIO = 0.03; // Fewer active squares at once
+  const ANIMATION_DURATION = 5000; // Slowed down from 6000ms to 10000ms
+  const MAX_OPACITY = 0.1; // Slightly reduced maximum opacity for subtle effect
+  const ACTIVE_SQUARES_RATIO = 0.08; // Fewer active squares at once
   let radius = $derived($theme == "dark" ? "45vw" : "70vw");
   let squares: {
     id: number;

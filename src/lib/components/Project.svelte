@@ -6,7 +6,9 @@
   import { SiGithub } from "@icons-pack/svelte-simple-icons";
 </script>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 rounded-lg text-start">
+<div
+  class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:p-4 rounded-lg lg:text-start text-center"
+>
   <div class="flex flex-col">
     <div class="flex-1 my-4">
       <h2 class="text-4xl md:text-5xl font-bold md:font-extrabold">{name}</h2>
