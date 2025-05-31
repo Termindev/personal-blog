@@ -2,7 +2,15 @@ import type { PageServerLoad } from "./$types";
 import { prisma } from "$lib/server/prisma"; // adjust if your prisma client is in a different location
 import { parse } from "cookie";
 
-export const load: PageServerLoad = async ({ request }) => {
+async function getArticles(request: Request): Promise<
+  {
+    id: string;
+    title: string;
+    desc: string;
+    tags: string;
+    publish_date: Date;
+  }[]
+> {
   const cookies = parse(request.headers.get("cookie") || "");
   const lang = cookies.lang || "en";
 
@@ -37,9 +45,11 @@ export const load: PageServerLoad = async ({ request }) => {
     tags: article[tagsRelation].map((tag: any) => tag.name),
     publish_date: article.publish_date,
   }));
+  return articles;
+}
 
+export const load: PageServerLoad = async ({ request }) => {
   return {
-    lang,
-    articles,
+    articlesPromise: getArticles(request),
   };
 };
