@@ -1,39 +1,48 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-ts"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.sqlite"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-model EnArticle {
-  id           String      @id
-  title        String
-  desc         String
-  content      String
-  publish_date DateTime @default(now())
+model article {
+  id           String    @id @default(uuid()) @db.Uuid
+
+  title_ar     String
+  desc_ar      String
+  content_ar   String
+  tags_ar      tag_ar[]  @relation("ArticleTagsAr")
+
+  title_en     String
+  desc_en      String
+  content_en   String
+  tags_en      tag_en[]  @relation("ArticleTagsEn")
+
+  title_ru     String
+  desc_ru      String
+  content_ru   String
+  tags_ru      tag_ru[]  @relation("ArticleTagsRu")
+
+  publish_date DateTime  @default(now())
 }
 
-model ArArticle {
-  id           String      @id
-  title        String
-  desc         String
-  content      String
-  publish_date DateTime @default(now())
+model tag_ar {
+  id       String     @id @default(uuid()) @db.Uuid
+  name     String     @unique
+  articles article[]  @relation("ArticleTagsAr")
 }
 
-model RuArticle {
-  id           String      @id
-  title        String
-  desc         String
-  content      String
-  publish_date DateTime @default(now())
+model tag_en {
+  id       String     @id @default(uuid()) @db.Uuid
+  name     String     @unique
+  articles article[]  @relation("ArticleTagsEn")
+}
+
+model tag_ru {
+  id       String     @id @default(uuid()) @db.Uuid
+  name     String     @unique
+  articles article[]  @relation("ArticleTagsRu")
 }

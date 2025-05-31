@@ -5,13 +5,20 @@
   import "../lib/i18n";
   import { onMount } from "svelte";
   import { t } from "svelte-i18n";
+  import { parse } from "cookie";
+
   let loaded = $state(false);
+
   onMount(async () => {
-    if (localStorage.getItem("lang")) {
-      await locale.set(localStorage.getItem("lang"));
+    const cookies = parse(document.cookie);
+    const cookieLang = cookies.lang;
+
+    if (cookieLang) {
+      await locale.set(cookieLang);
     }
     loaded = true;
   });
+
   let { children } = $props();
 </script>
 

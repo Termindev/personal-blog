@@ -1,73 +1,130 @@
 import type { Actions } from "@sveltejs/kit";
 import { prisma } from "$lib/server/prisma";
-import { fail } from "assert";
+import { error } from "@sveltejs/kit";
 import { nanoid } from "nanoid";
-
-type ArticleFileMap = {
-  [lang: string]: {
-    file: File;
-    model: any;
-  };
-};
 
 function extractMetadata(content: string) {
   const titleMatch = content.match(/^title:\s*(.+)$/m);
   const descriptionMatch = content.match(/^description:\s*(.+)$/m);
+  const tagsMatch = content.match(/^tags:\s*(.+)$/m); // Extract tags line
+
   return {
     title: titleMatch?.[1].trim() ?? null,
     desc: descriptionMatch?.[1].trim() ?? null,
+    tags: tagsMatch
+      ? tagsMatch[1]
+          .split(",")
+          .map((t) => t.trim().toLowerCase())
+          .filter((t) => t.length > 0)
+      : [],
   };
+}
+
+function extractContent(content: string) {
+  const parts = content.split(/^---$/m);
+  return parts.length > 1 ? parts[1].trim() : "";
+}
+
+async function readFileText(file: File): Promise<string> {
+  const arrayBuffer = await file.arrayBuffer();
+  return new TextDecoder("utf-8").decode(arrayBuffer);
 }
 
 export const actions: Actions = {
   createArticle: async ({ request }) => {
-    const formData = Object.fromEntries(await request.formData());
+    const formData = await request.formData();
 
     const sharedID = nanoid(12);
-    let done = false;
 
-    const files: ArticleFileMap = {
-      ar: {
-        file: formData.arcontent as File,
-        model: prisma.ArArticle,
-      },
-      en: {
-        file: formData.encontent as File,
-        model: prisma.EnArticle,
-      },
-      ru: {
-        file: formData.rucontent as File,
-        model: prisma.RuArticle,
-      },
-    };
+    const langs = ["ar", "en", "ru"];
+    const articleData: Record<
+      string,
+      {
+        title: string | null;
+        desc: string | null;
+        content: string | null;
+        tags: string[];
+      }
+    > = {};
 
-    for (const [lang, { file, model }] of Object.entries(files)) {
-      if (!file || !(file instanceof File)) continue;
+    for (const lang of langs) {
+      const file = formData.get(`${lang}content`) as File | null;
 
-      const content = await file.text();
-      if (!content.length) continue;
+      if (file && file.size > 0) {
+        const text = await readFileText(file);
+        const { title, desc, tags } = extractMetadata(text);
+        const content = extractContent(text);
 
-      const { title, desc } = extractMetadata(content);
-
-      try {
-        await model.create({
-          data: {
-            id: sharedID,
-            title,
-            content,
-            desc,
-          },
-        });
-        done = true;
-      } catch (err) {
-        console.error(`Error creating ${lang} article:`, err);
+        articleData[lang] = {
+          title,
+          desc,
+          content: content || null,
+          tags,
+        };
+      } else {
+        articleData[lang] = {
+          title: null,
+          desc: null,
+          content: null,
+          tags: [],
+        };
       }
     }
 
-    if (!done) {
-      return fail("Couldn't post anything");
+    // Check if at least one language is fully filled
+    const hasCompleteLang = Object.values(articleData).some(
+      (entry) => entry.title && entry.desc && entry.content
+    );
+
+    if (!hasCompleteLang) {
+      throw error(
+        400,
+        "At least one language must have a full article (title, description, content)"
+      );
     }
 
-    return { status: 201 };
+    // Helper function to create connectOrCreate tags for a language
+    function buildTagConnectOrCreate(tags: string[], modelName: string) {
+      return tags.map((tag) => ({
+        where: { name: tag },
+        create: { name: tag },
+      }));
+    }
+
+    await prisma.article.create({
+      data: {
+        title_ar: articleData.ar.title ?? "",
+        desc_ar: articleData.ar.desc ?? "",
+        content_ar: articleData.ar.content ?? "",
+        tags_ar: {
+          connectOrCreate: buildTagConnectOrCreate(
+            articleData.ar.tags,
+            "tag_ar"
+          ),
+        },
+
+        title_en: articleData.en.title ?? "",
+        desc_en: articleData.en.desc ?? "",
+        content_en: articleData.en.content ?? "",
+        tags_en: {
+          connectOrCreate: buildTagConnectOrCreate(
+            articleData.en.tags,
+            "tag_en"
+          ),
+        },
+
+        title_ru: articleData.ru.title ?? "",
+        desc_ru: articleData.ru.desc ?? "",
+        content_ru: articleData.ru.content ?? "",
+        tags_ru: {
+          connectOrCreate: buildTagConnectOrCreate(
+            articleData.ru.tags,
+            "tag_ru"
+          ),
+        },
+      },
+    });
+
+    return { success: true };
   },
 };
