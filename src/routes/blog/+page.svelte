@@ -6,9 +6,9 @@
 
   let articles = $state(data.articles);
 
-  onMount(() => {
-    console.log("Articles:", articles);
-  });
+  // onMount(() => {
+  //   console.log("Articles:", articles);
+  // });
 </script>
 
 {#each articles as article}
