@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import { prisma } from "$lib/server/prisma"; // adjust if your prisma client is in a different location
+import { prisma } from "$lib/server/prisma";
 import { parse } from "cookie";
 
 async function getArticles(request: Request): Promise<
@@ -7,7 +7,7 @@ async function getArticles(request: Request): Promise<
     id: string;
     title: string;
     desc: string;
-    tags: string;
+    tags: string[];
     publish_date: Date;
   }[]
 > {
@@ -18,10 +18,8 @@ async function getArticles(request: Request): Promise<
     throw new Error("Unsupported language");
   }
 
-  // Dynamically build fields
   const titleField = `title_${lang}`;
   const descField = `desc_${lang}`;
-  //   const contentField = `content_${lang}`;
   const tagsRelation = `tags_${lang}`;
 
   const articlesRaw = await prisma.article.findMany({
@@ -37,14 +35,17 @@ async function getArticles(request: Request): Promise<
     orderBy: { publish_date: "desc" },
   });
 
-  // Normalize field names
-  const articles = articlesRaw.map((article: any) => ({
-    id: article.id,
-    title: article[titleField],
-    desc: article[descField],
-    tags: article[tagsRelation].map((tag: any) => tag.name),
-    publish_date: article.publish_date,
-  }));
+  // Filter out articles with no title in the selected language
+  const articles = articlesRaw
+    .filter((article: any) => article[titleField]) // removes null or empty titles
+    .map((article: any) => ({
+      id: article.id,
+      title: article[titleField],
+      desc: article[descField],
+      tags: article[tagsRelation].map((tag: any) => tag.name),
+      publish_date: article.publish_date,
+    }));
+
   return articles;
 }
 

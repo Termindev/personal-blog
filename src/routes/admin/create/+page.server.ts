@@ -1,7 +1,6 @@
 import type { Actions } from "@sveltejs/kit";
 import { prisma } from "$lib/server/prisma";
 import { error } from "@sveltejs/kit";
-import { nanoid } from "nanoid";
 
 function extractMetadata(content: string) {
   const titleMatch = content.match(/^title:\s*(.+)$/m);
@@ -33,8 +32,6 @@ async function readFileText(file: File): Promise<string> {
 export const actions: Actions = {
   createArticle: async ({ request }) => {
     const formData = await request.formData();
-
-    const sharedID = nanoid(12);
 
     const langs = ["ar", "en", "ru"];
     const articleData: Record<
