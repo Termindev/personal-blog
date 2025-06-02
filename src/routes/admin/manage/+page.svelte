@@ -82,8 +82,9 @@
                 {/each}
               </div>
               <div>
-                <a href={`/manage/${article.id}`} class="btn btn-sm btn-accent"
-                  >Edit</a
+                <a
+                  href={`/admin/manage/${article.id}`}
+                  class="btn btn-sm btn-accent">Edit</a
                 >
 
                 <button

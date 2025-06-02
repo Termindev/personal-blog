@@ -45,7 +45,7 @@ export const actions: Actions = {
     > = {};
 
     for (const lang of langs) {
-      const file = formData.get(`${lang}content`) as File | null;
+      const file = formData.get(`content_${lang}`) as File | null;
 
       if (file && file.size > 0) {
         const text = await readFileText(file);
