@@ -5,6 +5,10 @@
   let { data }: { data: PageData } = $props();
 </script>
 
+<svelte:head>
+  <title>Termin | Post an article</title>
+</svelte:head>
+
 <Container id="input">
   <h1 class="text-3xl mb-4">Post an article</h1>
   <form

@@ -3,6 +3,9 @@
   import { SiGithub } from "@icons-pack/svelte-simple-icons";
 </script>
 
+<svelte:head>
+  <title>Termin | Admin Login</title>
+</svelte:head>
 <div class="text-center my-18">
   <button
     class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"

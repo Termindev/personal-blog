@@ -2,10 +2,7 @@ import type { PageServerLoad } from "./$types";
 import { prisma } from "$lib/server/prisma";
 import { parse } from "cookie";
 
-export const load = (async ({ params, request }) => {
-  const id = params.slug;
-  const cookies = parse(request.headers.get("cookie") || "");
-  const lang = cookies.lang || "en";
+async function getArticle(id: string, lang: string) {
   let article;
   try {
     article = await prisma.article.findUnique({
@@ -51,4 +48,11 @@ export const load = (async ({ params, request }) => {
     },
     availableLanguages,
   };
+}
+
+export const load = (async ({ params, request }) => {
+  const id = params.slug;
+  const cookies = parse(request.headers.get("cookie") || "");
+  const lang = cookies.lang || "en";
+  return getArticle(id, lang);
 }) satisfies PageServerLoad;

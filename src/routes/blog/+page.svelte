@@ -8,6 +8,9 @@
   let articles = $state(data.articlesPromise);
 </script>
 
+<svelte:head>
+  <title>Termin | Blog</title>
+</svelte:head>
 <!-- TODO: Maybe add skeleton loading instead -->
 {#await articles}
   <Loading />
