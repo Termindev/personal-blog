@@ -24,7 +24,20 @@
 </script>
 
 <svelte:head>
+  <meta name="author" content="Termin | My blog" />
+  <meta property="og:title" content="Termin | My blog" />
+  <meta name="twitter:title" content="Termin | My blog" />
+  <meta property="og:site_name" content="Termin | My blog" />
   <title>Termin | Blog</title>
+  <meta name="description" content="My personal not-so-tech-related blog" />
+  <meta
+    property="og:description"
+    content="My personal not-so-tech-related blog"
+  />
+  <meta
+    name="twitter:description"
+    content="My personal not-so-tech-related blog"
+  />
 </svelte:head>
 
 {#await Promise.all([articlesPromise, tagsPromise])}

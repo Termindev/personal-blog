@@ -22,6 +22,17 @@
   let { children } = $props();
 </script>
 
+<svelte:head>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://termin.is-a.dev/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- <meta property="og:image" content="https://yourwebsite.com/image.jpg" /> -->
+  <!-- <meta property="og:image:alt" content="Description of the image" /> -->
+  <!-- <meta name="twitter:image" content="https://termin.is-a.dev/" /> -->
+  <!-- <meta name="twitter:image:alt" content="Description of the image" /> -->
+</svelte:head>
+
 <!-- TODO: use dir from lang store -->
 <!-- await waitLocale isn't needed, I just kept it for safety lol -->
 {#await waitLocale() then}
