@@ -1,5 +1,6 @@
 <script lang="ts">
   import { marked } from "marked";
+  import { t } from "svelte-i18n";
   import type { PageData } from "./$types";
   import Loading from "$lib/components/Loading.svelte";
 
@@ -14,7 +15,7 @@
   <meta name="twitter:title" content={article.title} />
   <meta property="og:site_name" content={article.title} />
   <link rel="stylesheet" href="/github-markdown.css" />
-  <title>{article.title}</title>
+  <title>{article.title ? article.title : "Termin | Blog"}</title>
   <meta name="description" content={article.desc} />
   <meta property="og:description" content={article.desc} />
   <meta name="twitter:description" content={article.desc} />
@@ -23,10 +24,13 @@
   <Loading />
 {:then article}
   {#if data.notFound}
-    This article is either deleted or doesn't exist.
+    <div class="flex items-center justify-center h-[90vh]">
+      <div class="text-2xl">
+        {$t("blog.not_found")}
+      </div>
+    </div>
   {:else if !data.notFound && article.title.length < 1}
-    This article isn't available in the specified language, please switch to one
-    of the following languages: {data.availableLanguages}
+    {$t("blog.incorrect_lang")} {data.availableLanguages}
   {:else}
     <div class="markdown-body">
       {@html marked(article.content)}
