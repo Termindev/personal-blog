@@ -1,40 +1,58 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import type { PageProps } from "./$types";
   import Loading from "$lib/components/Loading.svelte";
+  import ArticleCard from "$lib/components/ArticleCard.svelte";
+  import TagFilter from "$lib/components/TagFilter.svelte";
+  import Container from "$lib/components/subComponents/Container.svelte";
+  import { t } from "svelte-i18n";
+  export let data: PageProps["data"];
 
-  let { data }: PageProps = $props();
+  let articlesPromise = data.articlesPromise;
+  let tagsPromise = data.tagsPromise;
 
-  let articles = $state(data.articlesPromise);
+  let selectedTags: string[] = [];
+
+  function toggleTag(tag: string) {
+    selectedTags = selectedTags.includes(tag)
+      ? selectedTags.filter((t) => t !== tag)
+      : [...selectedTags, tag];
+  }
+
+  function clearTags() {
+    selectedTags = [];
+  }
 </script>
 
 <svelte:head>
   <title>Termin | Blog</title>
 </svelte:head>
-<!-- TODO: Maybe add skeleton loading instead -->
-{#await articles}
+
+{#await Promise.all([articlesPromise, tagsPromise])}
   <Loading />
-{:then articles}
-  <div class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-2">
-    {#each articles as article}
-      <a
-        href={`/blog/${article.id}`}
-        class="card bg-base-200/40 backdrop-blur-md min-h-48 w-10/12 md:w-sm shadow-sm"
-      >
-        <div class="card-body">
-          <h2 class="card-title text-md md:text-xl">{article.title}</h2>
-          <p class="text-sm md:text-lg">
-            {article.desc}
-          </p>
-          <div class="card-actions justify-end">
-            {#each article.tags as tag}
-              <div class="badge badge-outline rounded-sm text-xs md:text-sm">
-                {tag}
-              </div>
-            {/each}
-          </div>
+{:then [articles, tags]}
+  <Container id="">
+    <TagFilter {tags} {selectedTags} onToggle={toggleTag} onClear={clearTags} />
+
+    {#if selectedTags.length > 0}
+      {#if articles.filter( (article: { tags: string | string[] }) => selectedTags.every( (tag) => article.tags.includes(tag) ) ).length === 0}
+        <p class="text-center text-gray-500">
+          {$t("blog.no_articles")}
+        </p>
+      {:else}
+        <div
+          class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-2"
+        >
+          {#each articles.filter( (article: { tags: string | string[] }) => selectedTags.every( (tag) => article.tags.includes(tag) ) ) as article}
+            <ArticleCard {article} />
+          {/each}
         </div>
-      </a>
-    {/each}
-  </div>
+      {/if}
+    {:else}
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-2">
+        {#each articles as article}
+          <ArticleCard {article} />
+        {/each}
+      </div>
+    {/if}
+  </Container>
 {/await}

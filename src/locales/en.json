@@ -81,5 +81,10 @@
   "footer": {
     "madeWith": "Made with",
     "by": "by Termin"
+  },
+  "blog": {
+    "clear": "Clear",
+    "tags": "Tags",
+    "no_articles": "No articles match selected tags."
   }
 }

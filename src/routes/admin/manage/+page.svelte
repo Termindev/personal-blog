@@ -17,7 +17,8 @@
       {#if article.visible}
         <div class="card bg-base-100 shadow-md border border-base-200">
           <div class="card-body">
-            <h2 class="card-title">ID: {article.id}</h2>
+            <pre
+              class="bg-base-300 text-xs p-2 font-light rounded">{article.id}</pre>
 
             <div class="space-y-2">
               <!-- Titles in all languages -->
@@ -106,23 +107,31 @@
           method="POST"
           action="?/deleteArticle"
           use:enhance
-          class="inline-block text-center"
+          class="text-center space-y-4"
         >
           <input type="hidden" name="id" value={deleteID} />
-          <h1 class="text-xl my-2">
-            Are you sure you want to delete the post with the following ID:
-          </h1>
-          <pre class="my-2"><code>{deleteID}</code></pre>
-          <button
-            class="btn btn-sm btn-error my-2"
-            onclick={() => {
-              modal.close();
-            }}>Delete</button
-          >
+
+          <h2 class="text-lg font-semibold">Delete Article</h2>
+          <p class="text-sm">Are you sure you want to delete this article?</p>
+          <pre class="bg-base-300 p-2 rounded">{deleteID}</pre>
+
+          <div class="flex justify-center gap-2">
+            <button type="submit" class="btn btn-sm btn-error"
+              >Confirm Delete</button
+            >
+            <button
+              type="button"
+              class="btn btn-sm"
+              onclick={() => modal.close()}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
+
       <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+        <button>Close</button>
       </form>
     </dialog>
   </div>
