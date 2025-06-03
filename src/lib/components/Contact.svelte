@@ -20,10 +20,10 @@
         {$t("contact.email")}
       </h3>
       <a
-        href="mailto:contact@termindev.ru"
+        href="/"
         class="my-2 hover:text-info transition-colors duration-200 text-lg sm:text-xl"
       >
-        contact@termindev.ru
+        {$t("contact.temp")}
       </a>
     </div>
 

@@ -76,7 +76,8 @@
     "title": "Contact me",
     "sub": "How to <span class=''>reach</span> out?",
     "email": "Email",
-    "telegram": "Telegram"
+    "telegram": "Telegram",
+    "temp": "Temporarily unavailable"
   },
   "footer": {
     "madeWith": "Made with",
