@@ -1,5 +1,6 @@
 import type { PageServerLoad, Actions } from "./$types";
 import { prisma } from "$lib/server/prisma";
+import { fail } from "assert";
 
 async function getArticle(id: string): Promise<any> {
   try {
@@ -37,7 +38,7 @@ export const actions: Actions = {
     const formData = await request.formData();
     const id = formData.get("id")?.toString();
 
-    if (!id) return new Response("Missing article ID", { status: 400 });
+    if (!id) return fail("Missing article ID");
 
     const supportedLangs = ["en", "ar", "ru"];
     const data: any = {};

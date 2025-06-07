@@ -46,3 +46,22 @@ model tag_ru {
   name     String     @unique
   articles article[]  @relation("ArticleTagsRu")
 }
+
+
+model goals {
+  id String @id @default(uuid()) @db.Uuid
+  
+  title_ar     String
+  desc_ar      String
+
+  title_en     String
+  desc_en      String
+
+  title_ru     String
+  desc_ru      String
+
+  achieved Boolean @default(false)
+  achieved_at DateTime?
+
+  deadline DateTime  @default(now())
+}

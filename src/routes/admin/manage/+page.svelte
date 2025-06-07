@@ -1,6 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import Loading from "$lib/components/Loading.svelte";
+  import ArticleTitle from "$lib/components/subComponents/ArticleTitle.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -23,23 +24,18 @@
             <div class="space-y-2">
               <!-- Titles in all languages -->
               {#if article.titles.en}
-                <div>
-                  <span class="badge badge-primary badge-sm mr-2">EN</span>
-                  <span class="font-semibold">{article.titles.en}</span>
-                </div>
+                <ArticleTitle title={article.titles.en} lang="EN" />
               {/if}
 
               {#if article.titles.ar}
                 <div>
-                  <span class="badge badge-success badge-sm mr-2">AR</span>
-                  <span class="font-semibold">{article.titles.ar}</span>
+                  <ArticleTitle title={article.titles.ar} lang="AR" />
                 </div>
               {/if}
 
               {#if article.titles.ru}
                 <div>
-                  <span class="badge badge-accent badge-sm mr-2">RU</span>
-                  <span class="font-semibold">{article.titles.ru}</span>
+                  <ArticleTitle title={article.titles.ru} lang="RU" />
                 </div>
               {/if}
             </div>

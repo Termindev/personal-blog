@@ -27,10 +27,11 @@
   <meta property="og:url" content="https://termin.is-a.dev/" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- <meta property="og:image" content="https://yourwebsite.com/image.jpg" /> -->
-  <!-- <meta property="og:image:alt" content="Description of the image" /> -->
-  <!-- <meta name="twitter:image" content="https://termin.is-a.dev/" /> -->
-  <!-- <meta name="twitter:image:alt" content="Description of the image" /> -->
+  <meta property="og:image" content="/favicon.png" />
+  <meta property="og:image:alt" content="Icon" />
+  <meta name="twitter:image" content="/favicon.png" />
+  <meta name="twitter:image:alt" content="Icon" />
+  <meta content="#8593EC" data-react-helmet="true" name="theme-color" />
 </svelte:head>
 
 <!-- TODO: use dir from lang store -->
