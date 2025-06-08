@@ -37,6 +37,9 @@
     </div>
 
     <style>
+      ul {
+        list-style-type: circle;
+      }
       .markdown-body {
         box-sizing: border-box;
         min-width: 200px;

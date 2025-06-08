@@ -2,7 +2,6 @@
   import BlogEdit from "$lib/components/BlogEdit.svelte";
   import Loading from "$lib/components/Loading.svelte";
   import Container from "$lib/components/subComponents/Container.svelte";
-  import Title from "$lib/components/subComponents/Title.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
