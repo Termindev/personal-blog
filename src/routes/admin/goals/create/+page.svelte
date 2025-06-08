@@ -23,6 +23,14 @@
     <GoalEdit lang="ar" lang_full="Arabic" />
     <GoalEdit lang="en" lang_full="English" />
     <GoalEdit lang="ru" lang_full="Russian" />
+    <fieldset class="fieldset my-6">
+      <legend class="fieldset-legend">Deadline</legend>
+      <input
+        type="datetime-local"
+        class="input block mx-auto"
+        name="deadline"
+      />
+    </fieldset>
     <button
       onclick={(e) => {
         e.preventDefault();

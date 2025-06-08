@@ -1,10 +1,10 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
   import type { LayoutData } from "./$types";
-  import Navbar from "$lib/components/Navbar.svelte";
+  import AdminNav from "$lib/components/AdminNav.svelte";
+
   let { data, children }: { data: LayoutData; children: Snippet } = $props();
 </script>
 
-<Navbar />
-
+<AdminNav />
 {@render children()}

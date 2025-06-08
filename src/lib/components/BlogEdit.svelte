@@ -1,7 +1,7 @@
 <script lang="ts">
   import Toggle from "./subComponents/Toggle.svelte";
 
-  let { articleData, lang, lang_full } = $props();
+  let { articleData, lang, lang_full, blog = true } = $props();
   let article = $state(articleData);
 
   let newTag = $state("");
@@ -57,49 +57,50 @@
       bind:value={article[`desc_${lang}`]}
     ></textarea>
   </fieldset>
+  {#if blog}
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">{lang_full} Content</legend>
+      <textarea
+        class="textarea min-h-64 mx-auto sm:w-2/3"
+        name={`content_${lang}`}
+        bind:value={article[`content_${lang}`]}
+      ></textarea>
+    </fieldset>
 
-  <fieldset class="fieldset">
-    <legend class="fieldset-legend">{lang_full} Content</legend>
-    <textarea
-      class="textarea min-h-64 mx-auto sm:w-2/3"
-      name={`content_${lang}`}
-      bind:value={article[`content_${lang}`]}
-    ></textarea>
-  </fieldset>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">{lang_full} Tags</legend>
 
-  <fieldset class="fieldset">
-    <legend class="fieldset-legend">{lang_full} Tags</legend>
+      <!-- Tag input -->
+      <div class="flex items-center gap-2 mb-2 mx-auto">
+        <input
+          type="text"
+          class="input input-sm input-bordered"
+          placeholder="Add tag"
+          bind:value={newTag}
+          onkeydown={handleKey}
+        />
+        <button type="button" class="btn btn-sm btn-primary" onclick={addTag}>
+          Add
+        </button>
+      </div>
 
-    <!-- Tag input -->
-    <div class="flex items-center gap-2 mb-2 mx-auto">
-      <input
-        type="text"
-        class="input input-sm input-bordered"
-        placeholder="Add tag"
-        bind:value={newTag}
-        onkeydown={handleKey}
-      />
-      <button type="button" class="btn btn-sm btn-primary" onclick={addTag}>
-        Add
-      </button>
-    </div>
-
-    <!-- Display tags -->
-    <div class="flex flex-wrap gap-2 mx-auto justify-center">
-      {#each article[`tags_${lang}`] as tag}
-        <div class="badge badge-neutral gap-1">
-          {tag.name}
-          <button
-            type="button"
-            class="ml-1 text-xs"
-            onclick={() => removeTag(tag)}
-            aria-label="Remove tag"
-          >
-            ✕
-          </button>
-        </div>
-        <input type="hidden" name={`tags_${lang}[]`} value={tag.name} />
-      {/each}
-    </div>
-  </fieldset>
+      <!-- Display tags -->
+      <div class="flex flex-wrap gap-2 mx-auto justify-center">
+        {#each article[`tags_${lang}`] as tag}
+          <div class="badge badge-neutral gap-1">
+            {tag.name}
+            <button
+              type="button"
+              class="ml-1 text-xs"
+              onclick={() => removeTag(tag)}
+              aria-label="Remove tag"
+            >
+              ✕
+            </button>
+          </div>
+          <input type="hidden" name={`tags_${lang}[]`} value={tag.name} />
+        {/each}
+      </div>
+    </fieldset>
+  {/if}
 {/if}

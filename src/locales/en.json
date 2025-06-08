@@ -17,6 +17,7 @@
   },
   "nav": {
     "blog": "Blog",
+    "goals": "Goals",
     "name": "Termin"
   },
   "hero": {
@@ -89,5 +90,10 @@
     "no_articles": "No articles match selected tags.",
     "incorrect_lang": "This article isn't available in the specified language, please switch to one of the following languages:",
     "not_found": "This article is either deleted or doesn't exist."
+  },
+  "goals": {
+    "title": "My goals",
+    "sub": "A list of my main goals",
+    "achieved": "Achieved Goals"
   }
 }

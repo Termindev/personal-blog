@@ -4,6 +4,7 @@
   import Contact from "$lib/components/Contact.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import Hero from "$lib/components/Hero.svelte";
+  import Navbar from "$lib/components/Navbar.svelte";
   import Projects from "$lib/components/Projects.svelte";
 </script>
 
@@ -24,6 +25,7 @@
   />
 </svelte:head>
 
+<Navbar />
 <Hero />
 <Achievements />
 <AboutMe />

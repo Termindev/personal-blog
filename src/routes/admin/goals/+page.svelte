@@ -30,6 +30,9 @@
         {/if}
       {/each}
     </div>
+    <a href="/admin/goals/create" class="btn btn-accent mx-auto mt-4"
+      >Add a goal</a
+    >
   </Container>
   <Container id="">
     <Title>Achieved goals</Title>

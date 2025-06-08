@@ -2,6 +2,7 @@
   import type { Snippet } from "svelte";
   import type { LayoutData } from "./$types";
   import Navbar from "$lib/components/Navbar.svelte";
+
   let { data, children }: { data: LayoutData; children: Snippet } = $props();
 </script>
 

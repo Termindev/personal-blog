@@ -20,6 +20,7 @@ export const actions: Actions = {
       }
       data[`desc_${lang}`] = formData.get(`desc_${lang}`)?.toString() ?? "";
     }
+    data["deadline"] = new Date(formData.get("deadline") + ":00");
     if (works) {
       await prisma.goals.create({
         data,

@@ -19,8 +19,11 @@
             tabindex="0"
             class="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li><a href="/goals">{$t("nav.goals")}</a></li>
-            <li><a href="/blog">{$t("nav.blog")}</a></li>
+            <li><a href="/admin/goals">Manage Goals</a></li>
+            <li><a href="/admin/goals/create">Add a Goal</a></li>
+            <li><a href="/admin/create">Post an article</a></li>
+            <li><a href="/admin/manage">Manage Articles</a></li>
+            <li><a href="/admin/tags">Manage Tags</a></li>
           </ul>
         </div>
       </div>

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { locale, waitLocale } from "svelte-i18n";
   import "../app.css";
-  import Navbar from "$lib/components/Navbar.svelte";
   import "../lib/i18n";
   import { onMount } from "svelte";
   import { t } from "svelte-i18n";
@@ -32,6 +31,22 @@
   <meta name="twitter:image" content="/favicon.png" />
   <meta name="twitter:image:alt" content="Icon" />
   <meta content="#8593EC" data-react-helmet="true" name="theme-color" />
+
+  <!-- TODO: Fix it so I can make the meta tags dynamic -->
+  <meta name="author" content="Termin" />
+  <meta property="og:title" content="Termin" />
+  <meta name="twitter:title" content="Termin" />
+  <meta property="og:site_name" content="Termin" />
+  <title>Termin</title>
+  <meta name="description" content="A developer, pentester and a student" />
+  <meta
+    property="og:description"
+    content="A developer, pentester and a student"
+  />
+  <meta
+    name="twitter:description"
+    content="A developer, pentester and a student"
+  />
 </svelte:head>
 
 <!-- TODO: use dir from lang store -->
@@ -39,7 +54,6 @@
 {#await waitLocale() then}
   {#if loaded}
     <div dir={$t("dir") as "ltr" | "rtl"}>
-      <Navbar />
       {@render children()}
     </div>
   {/if}

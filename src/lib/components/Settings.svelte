@@ -3,6 +3,7 @@
   import { locale, json, t } from "svelte-i18n";
   import { theme } from "$lib/store";
   import { parse, serialize } from "cookie";
+  import { Cog } from "lucide-svelte";
 
   let langs: { name: string; id: string; flag: string }[] = $derived(
     $json("settings.langs")
@@ -59,7 +60,7 @@
 </script>
 
 <div class="dropdown dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">{$t("settings.title")}</div>
+  <div tabindex="0" role="button" class="btn m-1"><Cog /></div>
   <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
   <ul
     tabindex="0"
