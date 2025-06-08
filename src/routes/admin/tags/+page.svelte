@@ -1,6 +1,7 @@
 <!-- src/routes/tags/+page.svelte -->
 <script lang="ts">
   import Loading from "$lib/components/Loading.svelte";
+  import Modal from "$lib/components/subComponents/Modal.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -61,30 +62,16 @@
   {/each}
 
   <!-- Modal for confirming deletion -->
-  <dialog bind:this={modal} class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
-      <form method="POST" action="?/deleteTag" class="text-center space-y-4">
-        <input type="hidden" name="id" value={deleteID} />
-        <input type="hidden" name="lang" value={deleteLang} />
-        <h2 class="text-lg font-semibold">Delete Tag</h2>
-        <p class="text-sm">Are you sure you want to delete this tag?</p>
-        <pre class="bg-base-300 p-2 rounded">{deleteID}</pre>
-        <div class="flex justify-center gap-2">
-          <button type="submit" class="btn btn-sm btn-error"
-            >Confirm Delete</button
-          >
-          <button
-            type="button"
-            class="btn btn-sm"
-            onclick={() => modal.close()}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>Close</button>
-    </form>
-  </dialog>
+  <Modal
+    style="error"
+    action="deleteTag"
+    bind:modal
+    title="Delete Article"
+    id={deleteID}
+    btn="Confirm Delete"
+  >
+    <input type="hidden" name="lang" value={deleteLang} />
+
+    Are you sure you want to delete this article?
+  </Modal>
 {/await}

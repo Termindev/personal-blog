@@ -2,6 +2,7 @@
   import { enhance } from "$app/forms";
   import Loading from "$lib/components/Loading.svelte";
   import ArticleTitle from "$lib/components/subComponents/ArticleTitle.svelte";
+  import Modal from "$lib/components/subComponents/Modal.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -97,38 +98,13 @@
         </div>
       {/if}
     {/each}
-    <dialog bind:this={modal} class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
-        <form
-          method="POST"
-          action="?/deleteArticle"
-          use:enhance
-          class="text-center space-y-4"
-        >
-          <input type="hidden" name="id" value={deleteID} />
-
-          <h2 class="text-lg font-semibold">Delete Article</h2>
-          <p class="text-sm">Are you sure you want to delete this article?</p>
-          <pre class="bg-base-300 p-2 rounded">{deleteID}</pre>
-
-          <div class="flex justify-center gap-2">
-            <button type="submit" class="btn btn-sm btn-error"
-              >Confirm Delete</button
-            >
-            <button
-              type="button"
-              class="btn btn-sm"
-              onclick={() => modal.close()}
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <form method="dialog" class="modal-backdrop">
-        <button>Close</button>
-      </form>
-    </dialog>
+    <Modal
+      style="error"
+      action="deleteArticle"
+      bind:modal
+      title="Delete Article"
+      id={deleteID}
+      btn="Confirm Delete">Are you sure you want to delete this article?</Modal
+    >
   </div>
 {/await}

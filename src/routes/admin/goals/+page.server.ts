@@ -1,41 +1,32 @@
 import type { PageServerLoad, Actions } from "./$types";
 import { prisma } from "$lib/server/prisma";
-import { fail, redirect } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
 
 async function getGoals() {
-  const articlesRaw = await prisma.goals.findMany({
-    select: {
-      id: true,
-      title_en: true,
-      desc_en: true,
-      title_ar: true,
-      desc_ar: true,
-      title_ru: true,
-      desc_ru: true,
-    },
-  });
+  const goalsRaw = await prisma.goals.findMany({});
 
-  const articles = articlesRaw.map((article: any) => {
+  const goals = goalsRaw.map((goal: any) => {
     const supportedLanguages = ["en", "ar", "ru"].filter(
-      (lang) => article[`title_${lang}` as keyof typeof article]
+      (lang) => goal[`title_${lang}` as keyof typeof goal]
     );
 
     return {
-      id: article.id,
+      id: goal.id,
+      achieved: goal.achieved,
       titles: {
-        en: article.title_en || null,
-        ar: article.title_ar || null,
-        ru: article.title_ru || null,
+        en: goal.title_en || null,
+        ar: goal.title_ar || null,
+        ru: goal.title_ru || null,
       },
       descs: {
-        en: article.desc_en || null,
-        ar: article.desc_ar || null,
-        ru: article.desc_ru || null,
+        en: goal.desc_en || null,
+        ar: goal.desc_ar || null,
+        ru: goal.desc_ru || null,
       },
       supportedLanguages,
     };
   });
-  return articles;
+  return goals;
 }
 
 export const load: PageServerLoad = async () => {
@@ -45,23 +36,67 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-  deleteArticle: async ({ request }) => {
+  deleteGoal: async ({ request }) => {
     const formData = await request.formData();
     const id = formData.get("id");
 
     if (typeof id !== "string") {
-      return fail(400, { error: "Invalid article ID" });
+      return fail(400, { error: "Invalid goal ID" });
     }
 
     try {
-      await prisma.article.delete({
+      await prisma.goals.delete({
         where: { id },
       });
 
       // Optional: redirect to the manage page after deletion
     } catch (error) {
-      console.error("Failed to delete article:", error);
-      return fail(500, { error: "Could not delete article" });
+      console.error("Failed to delete goal:", error);
+      return fail(500, { error: "Could not delete goal" });
+    }
+  },
+  achieveGoal: async ({ request }) => {
+    const formData = await request.formData();
+    const id = formData.get("id");
+
+    if (typeof id !== "string") {
+      return fail(400, { error: "Invalid goal ID" });
+    }
+
+    try {
+      await prisma.goals.update({
+        where: { id },
+        data: {
+          achieved: true,
+          achieved_at: new Date(),
+        },
+      });
+      // Optional: redirect to the manage page after deletion
+    } catch (error) {
+      console.error("Failed to delete goal:", error);
+      return fail(500, { error: "Could not delete goal" });
+    }
+  },
+  unachieveGoal: async ({ request }) => {
+    const formData = await request.formData();
+    const id = formData.get("id");
+
+    if (typeof id !== "string") {
+      return fail(400, { error: "Invalid goal ID" });
+    }
+
+    try {
+      await prisma.goals.update({
+        where: { id },
+        data: {
+          achieved: false,
+          achieved_at: null,
+        },
+      });
+      // Optional: redirect to the manage page after deletion
+    } catch (error) {
+      console.error("Failed to delete goal:", error);
+      return fail(500, { error: "Could not delete goal" });
     }
   },
 };
