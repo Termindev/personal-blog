@@ -15,6 +15,9 @@ async function getArticles(request: Request) {
   const tagsRelation = `tags_${lang}`;
 
   const articlesRaw = await prisma.article.findMany({
+    where: {
+      visible: true,
+    },
     select: {
       id: true,
       [titleField]: true,

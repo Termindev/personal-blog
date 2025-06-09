@@ -22,6 +22,7 @@ async function getArticles(): Promise<
     };
     supportedLanguages: string[];
     visible: boolean;
+    reviewable: boolean;
   }[]
 > {
   const articlesRaw = await prisma.article.findMany({
@@ -33,6 +34,8 @@ async function getArticles(): Promise<
       desc_ar: true,
       title_ru: true,
       desc_ru: true,
+      visible: true,
+      reviewable: true,
       tags_en: { select: { name: true } },
       tags_ar: { select: { name: true } },
       tags_ru: { select: { name: true } },
@@ -61,7 +64,8 @@ async function getArticles(): Promise<
         ar: article.tags_ar.map((tag: any) => tag.name),
         ru: article.tags_ru.map((tag: any) => tag.name),
       },
-      visible: true,
+      visible: article.visible,
+      reviewable: article.reviewable,
       supportedLanguages,
     };
   });

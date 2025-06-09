@@ -30,12 +30,7 @@
 </script>
 
 <h1 class="text-lg font-bold">{lang_full}:</h1>
-<Toggle
-  value={!article[lang]}
-  fun={() => {
-    article[lang] = !article[lang];
-  }}
-/>
+<Toggle bind:value={article[lang]} />
 
 {#if article[lang]}
   <fieldset class="fieldset">

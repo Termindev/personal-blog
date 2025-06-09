@@ -3,7 +3,7 @@
   let { goal, goalID = $bindable(), modals } = $props();
 </script>
 
-<div class="card bg-base-100 glow border border-base-200">
+<div class="card bg-base-100 glow {goal.visible ? '' : 'opacity-50'}">
   <div class="card-body">
     <pre class="bg-base-300 text-xs p-2 font-light rounded">{goal.id}</pre>
 

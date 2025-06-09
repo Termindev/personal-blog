@@ -29,7 +29,7 @@ async function getArticle(id: string): Promise<any> {
 
 export const load = (async ({ params }) => {
   const id = params.slug;
-  let article = getArticle(id);
+  let article = await getArticle(id);
   return { article };
 }) satisfies PageServerLoad;
 
@@ -63,6 +63,8 @@ export const actions: Actions = {
         })),
       };
     }
+    data["visible"] = formData.get("visible") == "on";
+    data["reviewable"] = formData.get("reviewable") == "on";
 
     await prisma.article.update({
       where: { id },

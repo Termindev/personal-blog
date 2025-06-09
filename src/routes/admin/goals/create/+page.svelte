@@ -3,6 +3,7 @@
   import Container from "$lib/components/subComponents/Container.svelte";
   import Modal from "$lib/components/subComponents/Modal.svelte";
   import Title from "$lib/components/subComponents/Title.svelte";
+  import Toggle from "$lib/components/subComponents/Toggle.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -10,6 +11,8 @@
   let modal: HTMLDialogElement;
   // svelte-ignore non_reactive_update
   let form: HTMLFormElement;
+
+  let visible = $state(true);
 </script>
 
 <Container id="articleEdit">
@@ -31,6 +34,11 @@
         name="deadline"
       />
     </fieldset>
+    <div class="my-4">
+      <h2 class="text-2xl my-2">Visibility:</h2>
+      <Toggle title="Visible" bind:value={visible} name="visible" />
+    </div>
+
     <button
       onclick={(e) => {
         e.preventDefault();

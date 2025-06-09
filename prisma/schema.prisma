@@ -26,6 +26,9 @@ model article {
   content_ru   String
   tags_ru      tag_ru[]  @relation("ArticleTagsRu")
 
+  visible       Boolean @default(true)
+  reviewable    Boolean @default(true)
+
   publish_date DateTime  @default(now())
 }
 
@@ -62,6 +65,8 @@ model goals {
 
   achieved Boolean @default(false)
   achieved_at DateTime?
+
+  visible       Boolean @default(true)
 
   deadline DateTime  @default(now())
 }

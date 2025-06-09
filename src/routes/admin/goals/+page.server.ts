@@ -23,6 +23,7 @@ async function getGoals() {
         ar: goal.desc_ar || null,
         ru: goal.desc_ru || null,
       },
+      visible: goal.visible,
       supportedLanguages,
     };
   });

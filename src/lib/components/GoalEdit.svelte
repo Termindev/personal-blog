@@ -7,12 +7,7 @@
 </script>
 
 <h1 class="text-lg font-bold">{lang_full}:</h1>
-<Toggle
-  value={!show}
-  fun={() => {
-    show = !show;
-  }}
-/>
+<Toggle bind:value={show} />
 
 {#if show}
   <fieldset class="fieldset">

@@ -24,7 +24,7 @@ async function getGoal(id: string): Promise<any> {
 
 export const load = (async ({ params }) => {
   const id = params.slug;
-  let goal = getGoal(id);
+  let goal = await getGoal(id);
   return { goal };
 }) satisfies PageServerLoad;
 
@@ -43,7 +43,7 @@ export const actions: Actions = {
       data[`title_${lang}`] = formData.get(`title_${lang}`)?.toString() ?? "";
       data[`desc_${lang}`] = formData.get(`desc_${lang}`)?.toString() ?? "";
     }
-
+    data["visible"] = formData.get("visible") == "on";
     await prisma.goals.update({
       where: { id },
       data,

@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="navbar-middle">
-        <a class="text-xl" href="/">{$t("nav.name")}</a>
+        <a class="text-xl" href="/admin/">{$t("nav.name")}</a>
       </div>
       <div class="navbar-end">
         <Settings />

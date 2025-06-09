@@ -119,6 +119,9 @@ export const actions: Actions = {
             "tag_ru"
           ),
         },
+
+        visible: formData.get("visible") == "on",
+        reviewable: formData.get("reviewable") == "on",
       },
     });
 

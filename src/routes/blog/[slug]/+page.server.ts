@@ -6,7 +6,7 @@ async function getArticle(id: string, lang: string) {
   let article;
   try {
     article = await prisma.article.findUnique({
-      where: { id },
+      where: { id, reviewable: true },
       select: {
         title_ar: true,
         title_en: true,

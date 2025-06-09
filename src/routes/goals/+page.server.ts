@@ -6,6 +6,9 @@ async function getGoals(lang: string) {
   let goals;
   try {
     goals = await prisma.goals.findMany({
+      where: {
+        visible: true,
+      },
       select: {
         [`title_${lang}`]: true,
         [`desc_${lang}`]: true,
