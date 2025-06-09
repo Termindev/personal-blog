@@ -35,26 +35,5 @@
     <div class="markdown-body">
       {@html marked(article.content)}
     </div>
-
-    <style>
-      ul {
-        list-style-type: circle;
-      }
-      .markdown-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
-      }
-      .markdown-body a {
-        color: var(--color-info);
-      }
-      @media (max-width: 767px) {
-        .markdown-body {
-          padding: 15px;
-        }
-      }
-    </style>
   {/if}
 {/await}
