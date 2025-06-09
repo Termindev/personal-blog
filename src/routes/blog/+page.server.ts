@@ -15,9 +15,7 @@ async function getArticles(request: Request) {
   const tagsRelation = `tags_${lang}`;
 
   const articlesRaw = await prisma.article.findMany({
-    where: {
-      visible: true,
-    },
+    where: { visible: true },
     select: {
       id: true,
       [titleField]: true,
@@ -39,24 +37,21 @@ async function getArticles(request: Request) {
     }));
 }
 
-function getTags(request: Request): Promise<string[]> {
-  const cookies = parse(request.headers.get("cookie") || "");
-  const lang = cookies.lang || "en";
-
-  const tagsTable = {
-    en: prisma.tag_en,
-    ar: prisma.tag_ar,
-    ru: prisma.tag_ru,
-  }[lang];
-
-  return tagsTable
-    .findMany({ select: { name: true } })
-    .then((tags: any[]) => tags.map((t) => t.name));
+async function getUsedTags(request: Request) {
+  return getArticles(request).then((articles) => {
+    const tagSet = new Set<string>();
+    for (const article of articles) {
+      for (const tag of article.tags) {
+        tagSet.add(tag);
+      }
+    }
+    return Array.from(tagSet);
+  });
 }
 
-export const load: PageServerLoad = async ({ request }) => {
+export const load: PageServerLoad = ({ request }) => {
   return {
     articlesPromise: getArticles(request),
-    tagsPromise: getTags(request),
+    tagsPromise: getUsedTags(request),
   };
 };

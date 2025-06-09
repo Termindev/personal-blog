@@ -53,7 +53,7 @@
         </p>
       {:else}
         <div
-          class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-2"
+          class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-8"
         >
           {#each articles.filter( (article: { tags: string | string[] }) => selectedTags.every( (tag) => article.tags.includes(tag) ) ) as article}
             <ArticleCard {article} />
@@ -61,7 +61,7 @@
         </div>
       {/if}
     {:else}
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-2">
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-8">
         {#each articles as article}
           <ArticleCard {article} />
         {/each}
