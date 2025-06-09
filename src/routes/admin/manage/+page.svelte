@@ -102,13 +102,16 @@
         </div>
       </div>
     {/each}
-    <Modal
-      style="error"
-      action="deleteArticle"
-      bind:modal
-      title="Delete Article"
-      id={deleteID}
-      btn="Confirm Delete">Are you sure you want to delete this article?</Modal
-    >
   </div>
+  <div class="text-center">
+    <a href="/admin/create" class="btn btn-accent">Post a new article</a>
+  </div>
+  <Modal
+    style="error"
+    action="deleteArticle"
+    bind:modal
+    title="Delete Article"
+    id={deleteID}
+    btn="Confirm Delete">Are you sure you want to delete this article?</Modal
+  >
 {/await}
