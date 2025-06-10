@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "goals" ALTER COLUMN "deadline" DROP NOT NULL,
+ALTER COLUMN "deadline" DROP DEFAULT;
