@@ -4,7 +4,7 @@
   let { article } = $props();
 
   onMount(() => {
-    const anchors = document.querySelectorAll("a");
+    const anchors = document.querySelectorAll(".markdown-body a");
     anchors.forEach((anchor) => {
       anchor.setAttribute("target", "_blank");
       anchor.setAttribute("rel", "noopener noreferrer");
