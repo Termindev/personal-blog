@@ -36,6 +36,7 @@
   <fieldset class="fieldset">
     <legend class="fieldset-legend">{lang_full} Title</legend>
     <input
+      dir="auto"
       type="text"
       class="input mx-auto"
       placeholder="Type here"
@@ -47,6 +48,7 @@
   <fieldset class="fieldset">
     <legend class="fieldset-legend">{lang_full} Description</legend>
     <textarea
+      dir="auto"
       class="textarea h-2/6 mx-auto sm:w-2/3"
       name={`desc_${lang}`}
       bind:value={article[`desc_${lang}`]}
@@ -56,6 +58,7 @@
     <fieldset class="fieldset">
       <legend class="fieldset-legend">{lang_full} Content</legend>
       <textarea
+        dir="auto"
         class="textarea min-h-64 mx-auto sm:w-2/3"
         name={`content_${lang}`}
         bind:value={article[`content_${lang}`]}
@@ -68,6 +71,7 @@
       <!-- Tag input -->
       <div class="flex items-center gap-2 mb-2 mx-auto">
         <input
+          dir="auto"
           type="text"
           class="input input-sm input-bordered"
           placeholder="Add tag"

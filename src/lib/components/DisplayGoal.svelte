@@ -1,5 +1,6 @@
 <script lang="ts">
   import { marked } from "marked";
+  import { onMount } from "svelte";
   let { goal } = $props();
 
   function formatDate(date: Date) {
@@ -8,6 +9,14 @@
     const year = date.getFullYear(); // e.g., 2025
     return `${day}.${month}.${year}`;
   }
+
+  onMount(() => {
+    const anchors = document.querySelectorAll("a");
+    anchors.forEach((anchor) => {
+      anchor.setAttribute("target", "_blank");
+      anchor.setAttribute("rel", "noopener noreferrer");
+    });
+  });
 </script>
 
 <svelte:head>

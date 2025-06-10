@@ -13,6 +13,7 @@
   <fieldset class="fieldset">
     <legend class="fieldset-legend">{lang_full} Title</legend>
     <input
+      dir="auto"
       type="text"
       class="input mx-auto"
       placeholder="Type here"
@@ -22,7 +23,10 @@
 
   <fieldset class="fieldset">
     <legend class="fieldset-legend">{lang_full} Description</legend>
-    <textarea class="textarea h-2/6 mx-auto sm:w-2/3" name={`desc_${lang}`}
+    <textarea
+      dir="auto"
+      class="textarea h-2/6 mx-auto sm:w-2/3"
+      name={`desc_${lang}`}
     ></textarea>
   </fieldset>
 {/if}
