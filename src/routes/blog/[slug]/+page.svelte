@@ -1,12 +1,11 @@
 <script lang="ts">
-  import { marked } from "marked";
   import { t } from "svelte-i18n";
   import type { PageData } from "./$types";
   import Loading from "$lib/components/Loading.svelte";
+  import ArticleBody from "$lib/components/ArticleBody.svelte";
 
   let { data }: { data: PageData } = $props();
   let article = data.article;
-  // console.log(article);
 </script>
 
 <svelte:head>
@@ -32,8 +31,6 @@
   {:else if !data.notFound && article.title.length < 1}
     {$t("blog.incorrect_lang")} {data.availableLanguages}
   {:else}
-    <div class="markdown-body">
-      {@html marked(article.content)}
-    </div>
+    <ArticleBody {article} />
   {/if}
 {/await}

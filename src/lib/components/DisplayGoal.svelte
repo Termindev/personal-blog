@@ -20,7 +20,7 @@
 >
   <div class="card-body p-4">
     <h2 class="card-title text-2xl">{goal.title}</h2>
-    <p class="text-start">
+    <p class="text-start markdown-body">
       {@html marked(goal.desc)}
     </p>
   </div>

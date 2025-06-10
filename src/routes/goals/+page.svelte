@@ -11,6 +11,7 @@
 
 <svelte:head>
   <title>Termin | Goals</title>
+  <link rel="stylesheet" href="/github-markdown.css" />
 </svelte:head>
 {#await data.goals}
   <Loading />

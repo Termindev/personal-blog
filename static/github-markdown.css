@@ -401,28 +401,22 @@
   line-height: 1.25;
 }
 /* CUSTOM ADDED BY ME */
-input[type="checkbox"] {
+.markdown-body input[type="checkbox"] {
   background-color: var(--color-base-300);
   margin-inline-end: 4px;
   cursor: pointer;
 }
-li:has(p) {
+.markdown-body li:has(p) {
   list-style-type: none;
 }
-ul:has(p) {
+.markdown-body ul:has(p) {
   padding: 0 !important;
 }
 
-ul {
+.markdown-body ul {
   list-style-type: circle;
 }
-.markdown-body {
-  box-sizing: border-box;
-  min-width: 200px;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 45px;
-}
+
 .markdown-body a {
   color: var(--color-info);
 }
