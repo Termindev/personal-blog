@@ -94,6 +94,7 @@
   "goals": {
     "title": "My goals",
     "sub": "A list of my main goals",
-    "achieved": "Achieved Goals"
+    "achieved": "Achieved Goals",
+    "deadline": "Deadline"
   }
 }

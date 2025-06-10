@@ -19,15 +19,19 @@ async function getGoals(lang: string) {
     });
   } catch (err) {
     console.log(err);
+    return { goals: [] };
   }
 
   if (!goals) {
-    return {
-      goals: [],
-    };
+    return { goals: [] };
   }
-  // Map language-specific fields to generic ones
-  const mappedGoals = goals.map((goal: any) => ({
+
+  const filteredGoals = goals.filter((goal: any) => {
+    const title = goal[`title_${lang}`];
+    return typeof title === "string" && title.trim().length > 0;
+  });
+
+  const mappedGoals = filteredGoals.map((goal: any) => ({
     title: goal[`title_${lang}`],
     desc: goal[`desc_${lang}`],
     achieved: goal.achieved,
