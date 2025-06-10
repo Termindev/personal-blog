@@ -22,8 +22,9 @@ export const actions: Actions = {
     }
     // visibility
     data["visible"] = formData.get("visible") == "on";
-
-    data["deadline"] = new Date(formData.get("deadline") + ":00");
+    if (formData.get("deadline")) {
+      data["deadline"] = new Date(formData.get("deadline") + ":00");
+    }
     if (works) {
       await prisma.goals.create({
         data,

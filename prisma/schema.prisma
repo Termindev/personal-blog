@@ -68,5 +68,5 @@ model goals {
 
   visible       Boolean @default(true)
 
-  deadline DateTime  @default(now())
+  deadline DateTime? 
 }

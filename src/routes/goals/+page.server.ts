@@ -26,7 +26,6 @@ async function getGoals(lang: string) {
       goals: [],
     };
   }
-
   // Map language-specific fields to generic ones
   const mappedGoals = goals.map((goal: any) => ({
     title: goal[`title_${lang}`],
