@@ -87,7 +87,7 @@
       <div class="flex flex-wrap gap-2 mx-auto justify-center">
         {#each article[`tags_${lang}`] as tag}
           <div class="badge badge-neutral gap-1">
-            {tag.name}
+            #{tag.name}
             <button
               type="button"
               class="ml-1 text-xs"

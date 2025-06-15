@@ -12,7 +12,7 @@
     <div class="card-actions justify-end flex-wrap gap-1">
       {#each article.tags as tag}
         <div class="badge badge-outline rounded-sm text-xs md:text-sm">
-          {tag}
+          #{tag}
         </div>
       {/each}
     </div>

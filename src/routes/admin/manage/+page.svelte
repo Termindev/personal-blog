@@ -65,7 +65,7 @@
                   <strong>{lang.toUpperCase()} Tags:</strong>
                   <div class="flex flex-wrap gap-1 mt-1">
                     {#each tagList as tag}
-                      <span class="badge badge-neutral badge-xs">{tag}</span>
+                      <span class="badge badge-neutral badge-xs">#{tag}</span>
                     {/each}
                   </div>
                 </div>

@@ -12,7 +12,7 @@
               {selectedTags.includes(tag) ? 'badge-primary text-base-100' : ''}"
       onclick={() => onToggle(tag)}
     >
-      {tag}
+      #{tag}
     </button>
   {/each}
 

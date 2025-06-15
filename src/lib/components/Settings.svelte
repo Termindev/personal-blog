@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import { locale, json, t } from "svelte-i18n";
   import { theme } from "$lib/store";
-  import { parse, serialize } from "cookie";
-  import { Cog } from "lucide-svelte";
+  import { serialize } from "cookie";
+  import { Cog, Languages, SunMoon } from "lucide-svelte";
 
   let langs: { name: string; id: string; flag: string }[] = $derived(
     $json("settings.langs")
@@ -66,7 +66,12 @@
     tabindex="0"
     class="dropdown-content menu bg-base-200/90 rounded-lg z-1 w-52 p-2 shadow-sm"
   >
-    <h1 class="text-lg mx-auto">{$t("settings.languages")}</h1>
+    <h1 class="text-lg px-3 py-2 flex items-center justify-between">
+      <span>
+        {$t("settings.languages")}
+      </span>
+      <Languages />
+    </h1>
     {#each langs as lang}
       <!-- svelte-ignore a11y_no_static_element_interactions -->
       <li>
@@ -81,8 +86,13 @@
         </a>
       </li>
     {/each}
-    <h1 class="text-lg mx-auto">{$t("settings.themes")}</h1>
-    <li>
+    <h1 class="text-lg px-3 py-2 flex items-center justify-between">
+      <span>
+        {$t("settings.themes")}
+      </span>
+      <SunMoon />
+    </h1>
+    <li class="flex">
       <input
         type="radio"
         name="theme-dropdown"
@@ -93,7 +103,7 @@
         bind:this={dark}
       />
     </li>
-    <li>
+    <li class="flex">
       <input
         type="radio"
         name="theme-dropdown"

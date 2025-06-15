@@ -32,7 +32,7 @@
             <div class="card-body">
               <pre
                 class="bg-base-300 text-xs p-2 font-light rounded">{tag.id}</pre>
-              <h3 class="card-title text-md truncate">{tag.name}</h3>
+              <h3 class="card-title text-md truncate">#{tag.name}</h3>
               <p class="text-sm text-gray-500">
                 Used in {tag.count} article{tag.count !== 1 ? "s" : ""}
               </p>
