@@ -40,5 +40,6 @@
     margin: 0 auto;
     padding-right: 45px;
     padding-left: 45px;
+    padding-bottom: 45px;
   }
 </style>
