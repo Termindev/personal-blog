@@ -5,6 +5,10 @@
   import { onMount } from "svelte";
   import { t } from "svelte-i18n";
   import { parse } from "cookie";
+  import { injectAnalytics } from "@vercel/analytics/sveltekit";
+  import { dev } from "$app/environment";
+
+  injectAnalytics({ mode: dev ? "development" : "production" });
 
   let loaded = $state(false);
 
