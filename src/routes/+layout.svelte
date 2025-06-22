@@ -30,10 +30,10 @@
   <meta property="og:url" content="https://termin.is-a.dev/" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- <meta property="og:image" content="/favicon.png" />
+  <meta property="og:image" content="/favicon.png" />
   <meta property="og:image:alt" content="Icon" />
   <meta name="twitter:image" content="/favicon.png" />
-  <meta name="twitter:image:alt" content="Icon" /> -->
+  <meta name="twitter:image:alt" content="Icon" />
   <meta content="#8593EC" data-react-helmet="true" name="theme-color" />
 
   <!-- TODO: Fix it so I can make the meta tags dynamic -->
