@@ -28,7 +28,7 @@
     {/each}
   </div>
 </Container>
-<div class="markdown-body info">
+<div class="markdown-body info" dir="auto">
   {@html marked(article.content)}
 </div>
 
