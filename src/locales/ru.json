@@ -7,7 +7,8 @@
         "desc": "Сайт, созданный как руководство для тех, кто хочет поступить в вузы России.",
         "name": "Way To Russia",
         "link": "https://waytoru.vercel.app/",
-        "src": "https://github.com/Termindev/WTR"
+        "src": "https://github.com/Termindev/WTR",
+        "imgSrc": "/images/waytoru.png"
       }
     ],
     "title": "Проекты",
@@ -96,5 +97,10 @@
     "sub": "Список моих основных целей",
     "achieved": "Достигнутые цели",
     "deadline": "дедлайн"
+  },
+  "404": {
+    "title": "Не уверен, как вы сюда попали",
+    "report": "Если вы думаете, что это ошибка — сообщите мне :)",
+    "msg": "Страница, которую вы пытаетесь найти, не существует"
   }
 }

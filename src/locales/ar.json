@@ -7,7 +7,14 @@
         "desc": "موقع إلكتروني مصمم كدليل لمساعدة الراغبين بالتقديم للجامعات في روسيا.",
         "name": "Way To Russia",
         "link": "https://waytoru.vercel.app/",
-        "src": "https://github.com/Termindev/WTR"
+        "src": "https://github.com/Termindev/WTR",
+        "imgSrc": "/images/waytoru.png"
+      },
+      {
+        "desc": "موقع مصمم لمساعدتك في مشاركة اراء الاخرين عنك",
+        "name": "WhatPeopleThinkOfMe",
+        "link": "https://whatpeoplethinkof.me/",
+        "imgSrc": "/images/wptom.png"
       }
     ],
     "title": "المشاريع",
@@ -96,5 +103,10 @@
     "sub": "قائمة بأهدافي الرئيسية",
     "achieved": "الأهداف المُحققة",
     "deadline": "يُنْجَزُ قبل"
+  },
+  "404": {
+    "title": "لست متأكدًا كيف وصلت إلى هنا",
+    "report": "إن كنت تعتقد أني أخطأت، أخبرني :)",
+    "msg": "الصفحة التي تحاول الوصول إليها ليست موجودة"
   }
 }

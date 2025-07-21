@@ -7,7 +7,14 @@
         "desc": "A website made as a guide to help people who want to apply to universities in Russia.",
         "name": "Way To Russia",
         "link": "https://waytoru.vercel.app/",
-        "src": "https://github.com/Termindev/WTR"
+        "src": "https://github.com/Termindev/WTR",
+        "imgSrc": "/images/waytoru.png"
+      },
+      {
+        "desc": "Веб-сайт, который позволяет вам ПОКАЗАТЬ другим, что о вас думают люди",
+        "name": "WhatPeopleThinkOfMe",
+        "link": "https://whatpeoplethinkof.me/",
+        "imgSrc": "/images/wptom.png"
       }
     ],
     "title": "Projects",
@@ -96,5 +103,10 @@
     "sub": "A list of my main goals",
     "achieved": "Achieved Goals",
     "deadline": "Deadline"
+  },
+  "404": {
+    "title": "Not sure how you got here",
+    "report": "If you think this is a mistake, tell me :)",
+    "msg": "The page you're trying to find doesn't exist"
   }
 }

@@ -27,6 +27,7 @@
   <div>
     {#each projects as project}
       <Project
+        imgSrc={project.imgSrc}
         name={project.name}
         srcLink={project.src}
         siteLink={project.link}

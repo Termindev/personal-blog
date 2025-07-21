@@ -2,6 +2,14 @@ import type { PageServerLoad } from "./$types";
 import { prisma } from "$lib/server/prisma";
 import { parse } from "cookie";
 
+function choose(field: string, fallback: string): string {
+  return field && field.length > 0 ? field : fallback;
+}
+
+function chooseTags(primary: any[], fallback: any[]): string[] {
+  return (primary?.length > 0 ? primary : fallback).map((tag: any) => tag.name);
+}
+
 async function getArticles(request: Request) {
   const cookies = parse(request.headers.get("cookie") || "");
   const lang = cookies.lang || "en";
@@ -12,41 +20,44 @@ async function getArticles(request: Request) {
 
   const titleField = `title_${lang}`;
   const descField = `desc_${lang}`;
-  const tagsRelation = `tags_${lang}`;
+  const tagsField = `tags_${lang}`;
 
-  const articlesRaw = await prisma.article.findMany({
+  // Only fetch English + selected language fields
+  const articles = await prisma.article.findMany({
     where: { visible: true },
     select: {
       id: true,
+      publish_date: true,
+
+      title_en: true,
+      desc_en: true,
+      tags_en: { select: { name: true } },
+
       [titleField]: true,
       [descField]: true,
-      [tagsRelation]: { select: { name: true } },
-      publish_date: true,
+      [tagsField]: { select: { name: true } },
     },
     orderBy: { publish_date: "desc" },
   });
 
-  return articlesRaw
-    .filter((article: any) => article[titleField])
-    .map((article: any) => ({
-      id: article.id,
-      title: article[titleField],
-      desc: article[descField],
-      tags: article[tagsRelation].map((tag: any) => tag.name),
-      publish_date: article.publish_date,
-    }));
+  return articles.map((article: any) => ({
+    id: article.id,
+    title: choose(article[titleField], article.title_en),
+    desc: choose(article[descField], article.desc_en),
+    tags: chooseTags(article[tagsField], article.tags_en),
+    publish_date: article.publish_date,
+  }));
 }
 
 async function getUsedTags(request: Request) {
-  return getArticles(request).then((articles) => {
-    const tagSet = new Set<string>();
-    for (const article of articles) {
-      for (const tag of article.tags) {
-        tagSet.add(tag);
-      }
+  const articles = await getArticles(request);
+  const tagSet = new Set<string>();
+  for (const article of articles) {
+    for (const tag of article.tags) {
+      tagSet.add(tag);
     }
-    return Array.from(tagSet);
-  });
+  }
+  return Array.from(tagSet);
 }
 
 export const load: PageServerLoad = ({ request }) => {

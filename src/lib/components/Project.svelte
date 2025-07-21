@@ -1,6 +1,6 @@
 <script>
   import Button from "./subComponents/Button.svelte";
-  let { srcLink, children, siteLink, name } = $props();
+  let { srcLink, children, siteLink, name, imgSrc } = $props();
   import { t } from "svelte-i18n";
   import { Link2 } from "lucide-svelte";
   import { SiGithub } from "@icons-pack/svelte-simple-icons";
@@ -17,16 +17,20 @@
       {@render children()}
     </div>
     <div class="flex-1 my-4">
-      <Button link={srcLink} text={$t("projects.view_src")}>
-        <SiGithub />
-      </Button>
-      <Button link={siteLink} text={$t("projects.view_project")}>
-        <Link2 />
-      </Button>
+      {#if srcLink}
+        <Button link={srcLink} text={$t("projects.view_src")}>
+          <SiGithub />
+        </Button>
+      {/if}
+      {#if siteLink}
+        <Button link={siteLink} text={$t("projects.view_project")}>
+          <Link2 />
+        </Button>
+      {/if}
     </div>
   </div>
 
   <div class="rounded-lg shadow-md">
-    <img src="/images/waytoru.png" alt="project preview" class="rounded-lg" />
+    <img src={imgSrc} alt="project preview" class="rounded-lg" />
   </div>
 </div>

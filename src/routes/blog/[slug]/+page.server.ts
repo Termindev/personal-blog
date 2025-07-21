@@ -2,61 +2,63 @@ import type { PageServerLoad } from "./$types";
 import { prisma } from "$lib/server/prisma";
 import { parse } from "cookie";
 
-async function getArticle(id: string, lang: string) {
-  let article;
-  const titleKey = `title_${lang}`;
-  const descKey = `desc_${lang}`;
-  const contentKey = `content_${lang}`;
-  const tagsKey = `tags_${lang}`;
+const LANGUAGES = ["ar", "en", "ru"] as const;
 
-  try {
-    article = await prisma.article.findUnique({
-      where: { id, reviewable: true },
-      select: {
-        [titleKey]: true,
-        [descKey]: true,
-        [contentKey]: true,
-        [tagsKey]: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-      } as any,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+async function getArticle(id: string, lang: string) {
+  const article = await prisma.article.findUnique({
+    where: { id, reviewable: true },
+    select: {
+      title_ar: true,
+      desc_ar: true,
+      content_ar: true,
+      tags_ar: { select: { id: true, name: true } },
+      title_en: true,
+      desc_en: true,
+      content_en: true,
+      tags_en: { select: { id: true, name: true } },
+      title_ru: true,
+      desc_ru: true,
+      content_ru: true,
+      tags_ru: { select: { id: true, name: true } },
+    },
+  });
 
   if (!article) {
     return {
       notFound: true,
-      article: {
-        title: "",
-        desc: "",
-        content: "",
-      },
+      article: { title: "", desc: "", content: "", tags: [] },
       availableLanguages: [],
-      tags: [],
     };
   }
 
-  const title = article[titleKey as keyof typeof article] || "";
-  const desc = article[descKey as keyof typeof article] || "";
-  const content = article[contentKey as keyof typeof article] || "";
-  const tags = article[tagsKey as keyof typeof article] || [];
-
-  const availableLanguages = ["ar", "en", "ru"].filter(
-    (l) => article[`title_${l}` as keyof typeof article]
+  const availableLanguages = LANGUAGES.filter((l) =>
+    article[`title_${l}`]?.trim()
   );
+
+  const pickLang = (l: string) =>
+    article[`title_${l}`]?.trim() &&
+    article[`desc_${l}`]?.trim() &&
+    article[`content_${l}`]?.trim()
+      ? l
+      : null;
+
+  const usedLang = pickLang(lang) || pickLang("en") || availableLanguages[0];
+
+  if (!usedLang) {
+    return {
+      notFound: true,
+      article: { title: "", desc: "", content: "", tags: [] },
+      availableLanguages,
+    };
+  }
 
   return {
     notFound: false,
     article: {
-      title,
-      desc,
-      content,
-      tags,
+      title: article[`title_${usedLang}`],
+      desc: article[`desc_${usedLang}`],
+      content: article[`content_${usedLang}`],
+      tags: article[`tags_${usedLang}`],
     },
     availableLanguages,
   };
@@ -64,7 +66,6 @@ async function getArticle(id: string, lang: string) {
 
 export const load = (async ({ params, request }) => {
   const id = params.slug;
-  const cookies = parse(request.headers.get("cookie") || "");
-  const lang = cookies.lang || "en";
+  const lang = parse(request.headers.get("cookie") || "").lang || "en";
   return getArticle(id, lang);
 }) satisfies PageServerLoad;
