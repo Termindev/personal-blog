@@ -9,6 +9,12 @@
         "link": "https://waytoru.vercel.app/",
         "src": "https://github.com/Termindev/WTR",
         "imgSrc": "/images/waytoru.png"
+      },
+      {
+        "desc": "Веб-сайт, который позволяет вам показать другим, что о вас думают люди",
+        "name": "What People Think Of Me",
+        "link": "https://whatpeoplethinkof.me/",
+        "imgSrc": "/images/wptom.png"
       }
     ],
     "title": "Проекты",
