@@ -4,6 +4,7 @@
   import { theme } from "$lib/store";
   import { serialize } from "cookie";
   import { Cog, Languages, SunMoon } from "lucide-svelte";
+  import { invalidateAll } from "$app/navigation";
 
   let langs: { name: string; id: string; flag: string }[] = $derived(
     $json("settings.langs")
@@ -56,6 +57,7 @@
   let updateLang = (newLang: string) => {
     locale.set(newLang);
     setCookie("lang", newLang);
+    invalidateAll();
   };
 </script>
 

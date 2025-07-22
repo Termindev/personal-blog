@@ -13,7 +13,7 @@ function chooseTags(primary: any[], fallback: any[]): string[] {
 async function getArticles(request: Request) {
   const cookies = parse(request.headers.get("cookie") || "");
   const lang = cookies.lang || "en";
-
+  console.log(lang);
   if (!["ar", "en", "ru"].includes(lang)) {
     throw new Error("Unsupported language");
   }
