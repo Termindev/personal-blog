@@ -68,7 +68,6 @@ export const actions: Actions = {
       }
     }
 
-    // Check if at least one language is fully filled
     const hasCompleteLang = Object.values(articleData).some(
       (entry) => entry.title && entry.desc && entry.content
     );
@@ -80,7 +79,6 @@ export const actions: Actions = {
       );
     }
 
-    // Helper function to create connectOrCreate tags for a language
     function buildTagConnectOrCreate(tags: string[], modelName: string) {
       return tags.map((tag) => ({
         where: { name: tag },

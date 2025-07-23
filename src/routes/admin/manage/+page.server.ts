@@ -91,8 +91,6 @@ export const actions: Actions = {
       await prisma.article.delete({
         where: { id },
       });
-
-      // Optional: redirect to the manage page after deletion
     } catch (error) {
       console.error("Failed to delete article:", error);
       return fail(500, { error: "Could not delete article" });

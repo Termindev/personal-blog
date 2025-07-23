@@ -22,7 +22,6 @@ async function getArticles(request: Request) {
   const descField = `desc_${lang}`;
   const tagsField = `tags_${lang}`;
 
-  // Only fetch English + selected language fields
   const articles = await prisma.article.findMany({
     where: { visible: true },
     select: {

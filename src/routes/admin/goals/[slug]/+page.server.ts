@@ -39,7 +39,6 @@ export const actions: Actions = {
     const data: any = {};
 
     for (const lang of supportedLangs) {
-      // Always set all fields, even if missing (set to "")
       data[`title_${lang}`] = formData.get(`title_${lang}`)?.toString() ?? "";
       data[`desc_${lang}`] = formData.get(`desc_${lang}`)?.toString() ?? "";
     }

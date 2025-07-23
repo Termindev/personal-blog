@@ -1,11 +1,10 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import { theme } from "$lib/store";
-  // Configuration - Updated for slower animation
   const GRID_SIZE = 40;
-  const ANIMATION_DURATION = 5000; // Slowed down from 6000ms to 10000ms
-  const MAX_OPACITY = 0.1; // Slightly reduced maximum opacity for subtle effect
-  const ACTIVE_SQUARES_RATIO = 0.08; // Fewer active squares at once
+  const ANIMATION_DURATION = 5000;
+  const MAX_OPACITY = 0.1;
+  const ACTIVE_SQUARES_RATIO = 0.08;
   let radius = $derived($theme == "dark" ? "45vw" : "70vw");
   let squares: {
     id: number;
@@ -32,7 +31,7 @@
       x: (i % cols) * GRID_SIZE,
       y: Math.floor(i / cols) * GRID_SIZE,
       opacity: 0,
-      delay: Math.random() * ANIMATION_DURATION * 3, // Wider delay range for more variation
+      delay: Math.random() * ANIMATION_DURATION * 3,
       active: Math.random() < ACTIVE_SQUARES_RATIO,
     }));
   }
@@ -46,7 +45,6 @@
       const cycleTime = (now + square.delay) % ANIMATION_DURATION;
       const progress = cycleTime / ANIMATION_DURATION;
 
-      // Even smoother fade with adjusted timing
       let opacity = 0;
       if (progress < 0.3) {
         opacity = Math.sin(((progress / 0.3) * Math.PI) / 2) * MAX_OPACITY;

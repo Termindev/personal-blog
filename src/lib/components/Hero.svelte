@@ -10,7 +10,7 @@
   const letters: string = $derived($t("hero.enc_str"));
   const animStepTime: number = 50; // ms per animation step
   const totalSteps: number = 20; // number of steps in morph animation
-  const displayDuration: number = 2000; // display decrypted text for 2 seconds
+  const displayDuration: number = 2000;
 
   let displayName: string = $derived(nameStates[0]);
   let displayRole: string = $derived(roleStates[0]);

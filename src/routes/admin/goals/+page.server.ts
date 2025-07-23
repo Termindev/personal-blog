@@ -49,8 +49,6 @@ export const actions: Actions = {
       await prisma.goals.delete({
         where: { id },
       });
-
-      // Optional: redirect to the manage page after deletion
     } catch (error) {
       console.error("Failed to delete goal:", error);
       return fail(500, { error: "Could not delete goal" });
@@ -72,7 +70,6 @@ export const actions: Actions = {
           achieved_at: new Date(),
         },
       });
-      // Optional: redirect to the manage page after deletion
     } catch (error) {
       console.error("Failed to delete goal:", error);
       return fail(500, { error: "Could not delete goal" });
@@ -94,7 +91,6 @@ export const actions: Actions = {
           achieved_at: null,
         },
       });
-      // Optional: redirect to the manage page after deletion
     } catch (error) {
       console.error("Failed to delete goal:", error);
       return fail(500, { error: "Could not delete goal" });
