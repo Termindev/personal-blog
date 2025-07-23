@@ -1,18 +1,8 @@
-# sv
+# TerminDev
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This repo is for my personal website, feel free to ask me anything about approaches or why I did that or why I didn't use that and so on, as I think there will be many of such questions.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+The rest of this is sveltekit's guide to development so yeah.
 
 ## Developing
 
