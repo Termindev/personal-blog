@@ -59,6 +59,7 @@ async function getArticle(id: string, lang: string) {
       desc: article[`desc_${usedLang}`],
       content: article[`content_${usedLang}`],
       tags: article[`tags_${usedLang}`],
+      id,
     },
     availableLanguages,
   };

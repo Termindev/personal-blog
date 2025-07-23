@@ -3,22 +3,12 @@
   import type { PageData } from "./$types";
   import Loading from "$lib/components/Loading.svelte";
   import ArticleBody from "$lib/components/ArticleBody.svelte";
+  import { MetaTags } from "svelte-meta-tags";
 
   let { data }: { data: PageData } = $props();
   let article = data.article;
 </script>
 
-<svelte:head>
-  <meta name="author" content={article.title} />
-  <meta property="og:title" content={article.title} />
-  <meta name="twitter:title" content={article.title} />
-  <meta property="og:site_name" content={article.title} />
-  <link rel="stylesheet" href="/github-markdown.css" />
-  <title>{article.title ? article.title : "Termin | Blog"}</title>
-  <meta name="description" content={article.desc} />
-  <meta property="og:description" content={article.desc} />
-  <meta name="twitter:description" content={article.desc} />
-</svelte:head>
 {#await article}
   <Loading />
 {:then article}
@@ -31,6 +21,33 @@
   {:else if !data.notFound && article.title.length < 1}
     {$t("blog.incorrect_lang")} {data.availableLanguages}
   {:else}
+    <MetaTags
+      title={article.title}
+      titleTemplate="%s | Termin Blog"
+      description={article.desc}
+      canonical={`https://termin.is-a.dev/blog/${article.id}`}
+      openGraph={{
+        type: "article",
+        url: `https://termin.is-a.dev/blog/${article.id}`,
+        title: article.title,
+        description: article.desc,
+        siteName: "Termin Blog",
+      }}
+      twitter={{
+        cardType: "summary_large_image",
+        site: "@Termin",
+        creator: "@Termin",
+        title: article.title,
+        description: article.desc,
+        imageAlt: article.title,
+      }}
+      additionalMetaTags={[
+        {
+          name: "author",
+          content: article.title,
+        },
+      ]}
+    />
     <ArticleBody {article} />
   {/if}
 {/await}

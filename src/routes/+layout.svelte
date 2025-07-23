@@ -23,37 +23,46 @@
   });
 
   let { children } = $props();
+  import { MetaTags } from "svelte-meta-tags";
 </script>
 
-<svelte:head>
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://termin.is-a.dev/" />
+<MetaTags
+  title="Termin"
+  titleTemplate="%s | Termin"
+  description="A developer, pentester and a student"
+  canonical="https://termin.is-a.dev/"
+  openGraph={{
+    type: "website",
+    url: "https://termin.is-a.dev/",
+    title: "Termin",
+    description: "A developer, pentester and a student",
+    siteName: "Termin",
+    images: [
+      {
+        url: "/favicon.png",
+        alt: "Icon",
+      },
+    ],
+  }}
+  twitter={{
+    cardType: "summary_large_image",
+    title: "Termin",
+    description: "A developer, pentester and a student",
+    image: "/favicon.png",
+    imageAlt: "Icon",
+  }}
+  additionalMetaTags={[
+    {
+      name: "theme-color",
+      content: "#8593EC",
+    },
+    {
+      name: "author",
+      content: "Termin",
+    },
+  ]}
+/>
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <!-- <meta property="og:image" content="/favicon.png" /> -->
-  <meta property="og:image:alt" content="Icon" />
-  <!-- <meta name="twitter:image" content="/favicon.png" /> -->
-  <meta name="twitter:image:alt" content="Icon" />
-  <meta content="#8593EC" data-react-helmet="true" name="theme-color" />
-
-  <!-- TODO: Fix it so I can make the meta tags dynamic -->
-  <meta name="author" content="Termin" />
-  <meta property="og:title" content="Termin" />
-  <meta name="twitter:title" content="Termin" />
-  <meta property="og:site_name" content="Termin" />
-  <title>Termin</title>
-  <meta name="description" content="A developer, pentester and a student" />
-  <meta
-    property="og:description"
-    content="A developer, pentester and a student"
-  />
-  <meta
-    name="twitter:description"
-    content="A developer, pentester and a student"
-  />
-</svelte:head>
-
-<!-- TODO: use dir from lang store -->
 <!-- await waitLocale isn't needed, I just kept it for safety lol -->
 {#await waitLocale() then}
   {#if loaded}
