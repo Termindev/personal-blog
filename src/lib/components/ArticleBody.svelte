@@ -13,6 +13,10 @@
   });
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="/github-markdown.css" />
+</svelte:head>
+
 <Container id="">
   <h1 class="border-b-0 text-xl sm:text-3xl font-bold">{article.title}</h1>
   <p class="text-sm sm:text-lg">{article.desc}</p>

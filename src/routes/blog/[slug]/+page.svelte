@@ -9,45 +9,42 @@
   let article = data.article;
 </script>
 
-{#await article}
-  <Loading />
-{:then article}
-  {#if data.notFound}
-    <div class="flex items-center justify-center h-[90vh]">
-      <div class="text-2xl">
-        {$t("blog.not_found")}
-      </div>
+{#if data.notFound}
+  <div class="flex items-center justify-center h-[90vh]">
+    <div class="text-2xl">
+      {$t("blog.not_found")}
     </div>
-  {:else if !data.notFound && article.title.length < 1}
-    {$t("blog.incorrect_lang")} {data.availableLanguages}
-  {:else}
-    <MetaTags
-      title={article.title}
-      titleTemplate="%s | Termin Blog"
-      description={article.desc}
-      canonical={`https://termin.is-a.dev/blog/${article.id}`}
-      openGraph={{
-        type: "article",
-        url: `https://termin.is-a.dev/blog/${article.id}`,
-        title: article.title,
-        description: article.desc,
-        siteName: "Termin Blog",
-      }}
-      twitter={{
-        cardType: "summary_large_image",
-        site: "@Termin",
-        creator: "@Termin",
-        title: article.title,
-        description: article.desc,
-        imageAlt: article.title,
-      }}
-      additionalMetaTags={[
-        {
-          name: "author",
-          content: article.title,
-        },
-      ]}
-    />
-    <ArticleBody {article} />
-  {/if}
-{/await}
+  </div>
+{:else if !data.notFound && article.title.length < 1}
+  {$t("blog.incorrect_lang")} {data.availableLanguages}
+{:else}
+  <MetaTags
+    title={article.title}
+    titleTemplate="%s | Termin"
+    description={article.desc}
+    canonical={`https://termin.is-a.dev/blog/${article.id}`}
+    openGraph={{
+      type: "article",
+      url: `https://termin.is-a.dev/blog/${article.id}`,
+      title: article.title,
+      description: article.desc,
+      siteName: "Termin",
+      article: {
+        // publishedTime: article.publishedAt,
+        // modifiedTime: article.updatedAt ?? article.publishedAt,
+        // expirationTime: article.expirationTime ?? undefined,
+        section: "Blog",
+        authors: ["Termin"],
+        tags: article.tags,
+      },
+    }}
+    twitter={{
+      cardType: "summary_large_image",
+      title: article.title,
+      description: article.desc,
+      imageAlt: article.title,
+    }}
+  />
+
+  <ArticleBody {article} />
+{/if}

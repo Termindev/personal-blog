@@ -68,5 +68,5 @@ async function getArticle(id: string, lang: string) {
 export const load = (async ({ params, request }) => {
   const id = params.slug;
   const lang = parse(request.headers.get("cookie") || "").lang || "en";
-  return getArticle(id, lang);
+  return await getArticle(id, lang);
 }) satisfies PageServerLoad;
