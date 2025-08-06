@@ -14,6 +14,7 @@
         "desc": "موقع مصمم لمساعدتك في مشاركة اراء الاخرين عنك",
         "name": "What People Think Of Me",
         "link": "https://whatpeoplethinkof.me/",
+        "src": "https://github.com/Termindev/WPTOM",
         "imgSrc": "/images/wptom.png"
       }
     ],

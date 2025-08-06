@@ -14,6 +14,7 @@
         "desc": "Веб-сайт, который позволяет вам показать другим, что о вас думают люди",
         "name": "What People Think Of Me",
         "link": "https://whatpeoplethinkof.me/",
+        "src": "https://github.com/Termindev/WPTOM",
         "imgSrc": "/images/wptom.png"
       }
     ],

@@ -14,6 +14,7 @@
         "desc": "A website that lets you SHOW others what people think of you",
         "name": "What People Think Of Me",
         "link": "https://whatpeoplethinkof.me/",
+        "src": "https://github.com/Termindev/WPTOM",
         "imgSrc": "/images/wptom.png"
       }
     ],
