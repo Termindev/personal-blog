@@ -20,7 +20,7 @@
 {:else}
   <MetaTags
     title={article.title}
-    titleTemplate="%s | Termin"
+    titleTemplate="%s"
     description={article.desc}
     canonical={`https://termin.is-a.dev/blog/${article.id}`}
     openGraph={{

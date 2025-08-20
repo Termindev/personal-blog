@@ -10,8 +10,7 @@
 </script>
 
 <MetaTags
-  title="Termin"
-  titleTemplate="%s | Termin"
+  title="Home"
   description="A developer, pentester and a student"
   canonical="https://termin.is-a.dev/"
   openGraph={{

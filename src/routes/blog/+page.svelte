@@ -26,7 +26,6 @@
 
 <MetaTags
   title="Blog"
-  titleTemplate="%s | Termin"
   description="My personal not-so-tech-related blog"
   canonical="https://termin.is-a.dev/blog"
   openGraph={{
