@@ -3,21 +3,36 @@ import { prisma } from "$lib/server/prisma";
 import { error } from "@sveltejs/kit";
 
 function extractMetadata(content: string) {
-  const titleMatch = content.match(/^title:\s*(.+)$/m);
-  const descriptionMatch = content.match(/^description:\s*(.+)$/m);
-  const tagsMatch = content.match(/^tags:\s*(.+)$/m); // Extract tags line
+  const titleMatch = content.match(/^title:\s*(.+)$/im);
+  const descriptionMatch = content.match(/^description:\s*(.+)$/im);
+
+  const tagsSectionMatch = content.match(/^tags:\s*$/im);
+
+  let tags: string[] = [];
+  if (tagsSectionMatch) {
+    const startIndex = tagsSectionMatch.index! + tagsSectionMatch[0].length;
+    const lines = content.slice(startIndex).split("\n");
+
+    for (const line of lines) {
+      const tagMatch = line.match(/^\s*-\s*(.+)$/);
+      if (tagMatch) {
+        tags.push(tagMatch[1].trim().toLowerCase());
+      } else if (line.trim() === "" || line.startsWith(" ")) {
+        continue; // skip blank/indented lines
+      } else {
+        break; // stop when tags block ends
+      }
+    }
+  }
 
   return {
     title: titleMatch?.[1].trim() ?? null,
     desc: descriptionMatch?.[1].trim() ?? null,
-    tags: tagsMatch
-      ? tagsMatch[1]
-          .split(",")
-          .map((t) => t.trim().toLowerCase())
-          .filter((t) => t.length > 0)
-      : [],
+    tags,
   };
 }
+
+
 
 function extractContent(content: string) {
   const parts = content.split(/^---$/m);
