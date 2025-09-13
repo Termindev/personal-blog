@@ -21,7 +21,7 @@ function extractMetadata(content: string) {
 
 function extractContent(content: string) {
   const parts = content.split(/^---$/m);
-  return parts.length > 1 ? parts[1].trim() : "";
+  return parts.length > 2 ? parts[2].trim() : "";
 }
 
 async function readFileText(file: File): Promise<string> {
