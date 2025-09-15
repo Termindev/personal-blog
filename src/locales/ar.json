@@ -58,6 +58,11 @@
         "name": "Purple Comet! Math Meet",
         "honor": "فزت بالمركز الأول عالميا",
         "img": "/images/purplecomet.png"
+      },
+      {
+        "name": "SmileyCTF",
+        "honor": "أفضل 100",
+        "img": "/images/smiley.png"
       }
     ]
   },

@@ -58,6 +58,11 @@
         "name": "Purple Comet! Math Meet",
         "honor": "1st Place worldwide and nationwide",
         "img": "/images/purplecomet.png"
+      },
+      {
+        "name": "SmileyCTF",
+        "honor": "Top-100",
+        "img": "/images/smiley.png"
       }
     ]
   },
