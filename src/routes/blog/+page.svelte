@@ -25,25 +25,25 @@
 </script>
 
 <MetaTags
-  title="Blog"
+  title="Termin | Blog"
   description="My personal not-so-tech-related blog"
   canonical="https://termin.is-a.dev/blog"
   openGraph={{
     type: "website",
     url: "https://termin.is-a.dev/blog",
-    title: "Blog | Termin",
+    title: "Termin | Blog",
     description: "My personal not-so-tech-related blog",
     siteName: "Termin | My blog",
   }}
   twitter={{
     cardType: "summary_large_image",
-    title: "Blog | Termin",
+    title: "Termin | My blog",
     description: "My personal not-so-tech-related blog",
   }}
   additionalMetaTags={[
     {
       name: "author",
-      content: "Termin | My blog",
+      content: "Termin",
     },
   ]}
 />

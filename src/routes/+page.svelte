@@ -10,7 +10,7 @@
 </script>
 
 <MetaTags
-  title="Termin"
+  title="Termin | Home"
   description="A developer, pentester and a student"
   canonical="https://termin.is-a.dev/"
   openGraph={{
@@ -19,12 +19,6 @@
     title: "Termin",
     description: "A developer, pentester and a student",
     siteName: "Termin",
-    images: [
-      {
-        url: "/favicon.png",
-        alt: "Icon",
-      },
-    ],
   }}
   twitter={{
     cardType: "summary_large_image",
