@@ -1,4 +1,5 @@
 {
+  "reg": "en-US",
   "dir": "ltr",
   "more": "And more coming up...",
   "projects": {
@@ -102,7 +103,8 @@
     "tags": "Tags",
     "no_articles": "No articles match selected tags.",
     "incorrect_lang": "This article isn't available in the specified language, please switch to one of the following languages:",
-    "not_found": "This article is either deleted or doesn't exist."
+    "not_found": "This article is either deleted or doesn't exist.",
+    "release": "Released on:"
   },
   "goals": {
     "title": "My goals",

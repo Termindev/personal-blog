@@ -15,15 +15,15 @@
   <link rel="stylesheet" href="/github-markdown.css" />
 </svelte:head>
 <MetaTags
-  title="Goals"
+  title="Termin | My goals"
   description="A developer, pentester and a student"
   canonical="https://termin.is-a.dev/"
   openGraph={{
     type: "website",
     url: "https://termin.is-a.dev/",
-    title: "Termin",
+    title: "Termin | My goals",
     description: "A developer, pentester and a student",
-    siteName: "Termin",
+    siteName: "Termin | My goals",
     images: [
       {
         url: "/favicon.png",
@@ -33,7 +33,7 @@
   }}
   twitter={{
     cardType: "summary_large_image",
-    title: "Termin",
+    title: "Termin | My goals",
     description: "A developer, pentester and a student",
     image: "/favicon.png",
     imageAlt: "Icon",

@@ -12,11 +12,15 @@
   class="footer footer-center p-6 mt-24 text-base-content text-sm border-t border-base-content/50"
 >
   <div>
-    <div class="inline-flex items-center gap-1">
+    <a
+      href="https://github.com/Termindev/personal-blog"
+      target="_blank"
+      class="inline-flex items-center gap-1 underline"
+    >
       <span>{$t("footer.madeWith")}</span>
       <Heart size={16} class="text-red-500 fill-red-500" />
       <span>{$t("footer.by")}</span>
-    </div>
+    </a>
 
     <div class="mt-2 flex flex-wrap justify-center gap-4">
       <a

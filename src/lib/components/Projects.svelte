@@ -25,7 +25,7 @@
     {@html $t("projects.sub")}
   </SubTitle>
   <div>
-    {#each projects as project}
+    {#each projects as project, idx}
       <Project
         imgSrc={project.imgSrc}
         name={project.name}
@@ -34,6 +34,9 @@
       >
         {project.desc}
       </Project>
+      {#if idx + 1 < projects.length}
+        <hr class="max-w-1/6 mx-auto my-4 text-primary" />
+      {/if}
     {/each}
   </div>
   <More />

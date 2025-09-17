@@ -1,6 +1,7 @@
 <script lang="ts">
   import { marked } from "marked";
   import { onMount } from "svelte";
+  import { t } from "svelte-i18n";
   import Container from "./subComponents/Container.svelte";
   let { article } = $props();
 
@@ -11,6 +12,10 @@
       anchor.setAttribute("rel", "noopener noreferrer");
     });
   });
+  const formattedDate = new Intl.DateTimeFormat($t("reg"), {
+    dateStyle: "long",
+    timeStyle: "short",
+  }).format(new Date(article.publish_date));
 </script>
 
 <svelte:head>
@@ -35,6 +40,8 @@
 <div class="markdown-body info" dir="auto">
   {@html marked(article.content)}
 </div>
+<hr />
+<footer class="text-center p-4">{$t("blog.release")} {formattedDate}</footer>
 
 <style>
   .info {

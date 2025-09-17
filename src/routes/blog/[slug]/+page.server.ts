@@ -20,13 +20,20 @@ async function getArticle(id: string, lang: string) {
       desc_ru: true,
       content_ru: true,
       tags_ru: { select: { id: true, name: true } },
+      publish_date: true, // ✅ include publish date
     },
   });
 
   if (!article) {
     return {
       notFound: true,
-      article: { title: "", desc: "", content: "", tags: [] },
+      article: {
+        title: "",
+        desc: "",
+        content: "",
+        tags: [],
+        publish_date: null,
+      },
       availableLanguages: [],
     };
   }
@@ -47,7 +54,13 @@ async function getArticle(id: string, lang: string) {
   if (!usedLang) {
     return {
       notFound: true,
-      article: { title: "", desc: "", content: "", tags: [] },
+      article: {
+        title: "",
+        desc: "",
+        content: "",
+        tags: [],
+        publish_date: null,
+      },
       availableLanguages,
     };
   }
@@ -60,6 +73,7 @@ async function getArticle(id: string, lang: string) {
       content: article[`content_${usedLang}`],
       tags: article[`tags_${usedLang}`],
       id,
+      publish_date: article.publish_date,
     },
     availableLanguages,
   };
