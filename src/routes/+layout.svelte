@@ -26,43 +26,6 @@
   let { children } = $props();
 </script>
 
-<MetaTags
-  title="Termin"
-  titleTemplate="%s | Termin"
-  description="A developer, pentester and a student"
-  canonical="https://termin.is-a.dev/"
-  openGraph={{
-    type: "website",
-    url: "https://termin.is-a.dev/",
-    title: "Termin",
-    description: "A developer, pentester and a student",
-    siteName: "Termin",
-    images: [
-      {
-        url: "/favicon.png",
-        alt: "Icon",
-      },
-    ],
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    title: "Termin",
-    description: "A developer, pentester and a student",
-    image: "/favicon.png",
-    imageAlt: "Icon",
-  }}
-  additionalMetaTags={[
-    {
-      name: "theme-color",
-      content: "#8593EC",
-    },
-    {
-      name: "author",
-      content: "Termin",
-    },
-  ]}
-/>
-
 <!-- await waitLocale isn't needed, I just kept it for safety lol -->
 {#await waitLocale() then}
   {#if loaded}

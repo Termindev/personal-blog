@@ -9,6 +9,33 @@
   let article = data.article;
 </script>
 
+<MetaTags
+  title={article.title}
+  description={article.desc}
+  canonical={`https://termin.is-a.dev/blog/${article.id}`}
+  openGraph={{
+    type: "article",
+    url: `https://termin.is-a.dev/blog/${article.id}`,
+    title: article.title,
+    description: article.desc,
+    siteName: "Termin",
+    article: {
+      // publishedTime: article.publishedAt,
+      // modifiedTime: article.updatedAt ?? article.publishedAt,
+      // expirationTime: article.expirationTime ?? undefined,
+      section: "Blog",
+      authors: ["Termin"],
+      tags: article.tags,
+    },
+  }}
+  twitter={{
+    cardType: "summary_large_image",
+    title: article.title,
+    description: article.desc,
+    imageAlt: article.title,
+  }}
+/>
+
 {#if data.notFound}
   <div class="flex items-center justify-center h-[90vh]">
     <div class="text-2xl">
@@ -18,33 +45,5 @@
 {:else if !data.notFound && article.title.length < 1}
   {$t("blog.incorrect_lang")} {data.availableLanguages}
 {:else}
-  <MetaTags
-    title={article.title}
-    titleTemplate="%s"
-    description={article.desc}
-    canonical={`https://termin.is-a.dev/blog/${article.id}`}
-    openGraph={{
-      type: "article",
-      url: `https://termin.is-a.dev/blog/${article.id}`,
-      title: article.title,
-      description: article.desc,
-      siteName: "Termin",
-      article: {
-        // publishedTime: article.publishedAt,
-        // modifiedTime: article.updatedAt ?? article.publishedAt,
-        // expirationTime: article.expirationTime ?? undefined,
-        section: "Blog",
-        authors: ["Termin"],
-        tags: article.tags,
-      },
-    }}
-    twitter={{
-      cardType: "summary_large_image",
-      title: article.title,
-      description: article.desc,
-      imageAlt: article.title,
-    }}
-  />
-
   <ArticleBody {article} />
 {/if}
