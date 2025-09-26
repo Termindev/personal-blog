@@ -6,38 +6,31 @@
   import Hero from "$lib/components/Hero.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
   import Projects from "$lib/components/Projects.svelte";
-  import { MetaTags } from "svelte-meta-tags";
 </script>
 
-<MetaTags
-  title="Termin | Home"
-  description="A developer, pentester and a student"
-  canonical="https://termin.is-a.dev/"
-  openGraph={{
-    type: "website",
-    url: "https://termin.is-a.dev/",
-    title: "Termin",
-    description: "A developer, pentester and a student",
-    siteName: "Termin",
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    title: "Termin",
-    description: "A developer, pentester and a student",
-    image: "/favicon.png",
-    imageAlt: "Icon",
-  }}
-  additionalMetaTags={[
-    {
-      name: "theme-color",
-      content: "#8593EC",
-    },
-    {
-      name: "author",
-      content: "Termin",
-    },
-  ]}
-/>
+<svelte:head>
+  <title>Termin | Home</title>
+  <meta name="description" content="A developer, pentester and a student" />
+  <link rel="canonical" href="https://termin.is-a.dev/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://termin.is-a.dev/" />
+  <meta property="og:title" content="Termin" />
+  <meta property="og:description" content="A developer, pentester and a student" />
+  <meta property="og:site_name" content="Termin" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Termin" />
+  <meta property="twitter:description" content="A developer, pentester and a student" />
+  <meta property="twitter:image" content="/favicon.png" />
+  <meta property="twitter:image:alt" content="Icon" />
+  
+  <!-- Additional meta tags -->
+  <meta name="theme-color" content="#8593EC" />
+  <meta name="author" content="Termin" />
+</svelte:head>
 
 <Navbar />
 <Hero />

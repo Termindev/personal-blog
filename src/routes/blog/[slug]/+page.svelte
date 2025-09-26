@@ -3,38 +3,34 @@
   import type { PageData } from "./$types";
   import Loading from "$lib/components/Loading.svelte";
   import ArticleBody from "$lib/components/ArticleBody.svelte";
-  import { MetaTags } from "svelte-meta-tags";
 
   let { data }: { data: PageData } = $props();
   let article = data.article;
 </script>
 
-<MetaTags
-  title={article.title}
-  description={article.desc}
-  canonical={`https://termin.is-a.dev/blog/${article.id}`}
-  openGraph={{
-    type: "article",
-    url: `https://termin.is-a.dev/blog/${article.id}`,
-    title: article.title,
-    description: article.desc,
-    siteName: "Termin",
-    article: {
-      // publishedTime: article.publishedAt,
-      // modifiedTime: article.updatedAt ?? article.publishedAt,
-      // expirationTime: article.expirationTime ?? undefined,
-      section: "Blog",
-      authors: ["Termin"],
-      tags: article.tags,
-    },
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    title: article.title,
-    description: article.desc,
-    imageAlt: article.title,
-  }}
-/>
+<svelte:head>
+  <title>{article.title}</title>
+  <meta name="description" content={article.desc} />
+  <link rel="canonical" href={`https://termin.is-a.dev/blog/${article.id}`} />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={`https://termin.is-a.dev/blog/${article.id}`} />
+  <meta property="og:title" content={article.title} />
+  <meta property="og:description" content={article.desc} />
+  <meta property="og:site_name" content="Termin" />
+  <meta property="article:section" content="Blog" />
+  <meta property="article:author" content="Termin" />
+  {#each article.tags as tag}
+    <meta property="article:tag" content={tag} />
+  {/each}
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content={article.title} />
+  <meta property="twitter:description" content={article.desc} />
+  <meta property="twitter:image:alt" content={article.title} />
+</svelte:head>
 
 {#if data.notFound}
   <div class="flex items-center justify-center h-[90vh]">

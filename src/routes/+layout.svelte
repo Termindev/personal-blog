@@ -1,6 +1,5 @@
 <script lang="ts">
   import { locale, waitLocale } from "svelte-i18n";
-  import { MetaTags } from "svelte-meta-tags";
   import "../app.css";
   import "../lib/i18n";
   import { onMount } from "svelte";

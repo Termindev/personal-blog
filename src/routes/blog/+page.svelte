@@ -5,7 +5,6 @@
   import TagFilter from "$lib/components/TagFilter.svelte";
   import Container from "$lib/components/subComponents/Container.svelte";
   import { t } from "svelte-i18n";
-  import { MetaTags } from "svelte-meta-tags";
   export let data: PageProps["data"];
 
   let articlesPromise = data.articlesPromise;
@@ -24,29 +23,26 @@
   }
 </script>
 
-<MetaTags
-  title="Termin | Blog"
-  description="My personal not-so-tech-related blog"
-  canonical="https://termin.is-a.dev/blog"
-  openGraph={{
-    type: "website",
-    url: "https://termin.is-a.dev/blog",
-    title: "Termin | Blog",
-    description: "My personal not-so-tech-related blog",
-    siteName: "Termin | My blog",
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    title: "Termin | My blog",
-    description: "My personal not-so-tech-related blog",
-  }}
-  additionalMetaTags={[
-    {
-      name: "author",
-      content: "Termin",
-    },
-  ]}
-/>
+<svelte:head>
+  <title>Termin | Blog</title>
+  <meta name="description" content="My personal not-so-tech-related blog" />
+  <link rel="canonical" href="https://termin.is-a.dev/blog" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://termin.is-a.dev/blog" />
+  <meta property="og:title" content="Termin | Blog" />
+  <meta property="og:description" content="My personal not-so-tech-related blog" />
+  <meta property="og:site_name" content="Termin | My blog" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Termin | My blog" />
+  <meta property="twitter:description" content="My personal not-so-tech-related blog" />
+  
+  <!-- Additional meta tags -->
+  <meta name="author" content="Termin" />
+</svelte:head>
 
 {#await Promise.all([articlesPromise, tagsPromise])}
   <Loading />
