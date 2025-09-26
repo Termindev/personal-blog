@@ -12,10 +12,13 @@
   <title>{article.title}</title>
   <meta name="description" content={article.desc} />
   <link rel="canonical" href={`https://termin.is-a.dev/blog/${article.id}`} />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content={`https://termin.is-a.dev/blog/${article.id}`} />
+  <meta
+    property="og:url"
+    content={`https://termin.is-a.dev/blog/${article.id}`}
+  />
   <meta property="og:title" content={article.title} />
   <meta property="og:description" content={article.desc} />
   <meta property="og:site_name" content="Termin" />
@@ -24,12 +27,11 @@
   {#each article.tags as tag}
     <meta property="article:tag" content={tag} />
   {/each}
-  
+
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:card" content="summary" />
   <meta property="twitter:title" content={article.title} />
   <meta property="twitter:description" content={article.desc} />
-  <meta property="twitter:image:alt" content={article.title} />
 </svelte:head>
 
 {#if data.notFound}

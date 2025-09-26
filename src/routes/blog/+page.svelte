@@ -27,19 +27,25 @@
   <title>Termin | Blog</title>
   <meta name="description" content="My personal not-so-tech-related blog" />
   <link rel="canonical" href="https://termin.is-a.dev/blog" />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://termin.is-a.dev/blog" />
   <meta property="og:title" content="Termin | Blog" />
-  <meta property="og:description" content="My personal not-so-tech-related blog" />
+  <meta
+    property="og:description"
+    content="My personal not-so-tech-related blog"
+  />
   <meta property="og:site_name" content="Termin | My blog" />
-  
+
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:card" content="summary" />
   <meta property="twitter:title" content="Termin | My blog" />
-  <meta property="twitter:description" content="My personal not-so-tech-related blog" />
-  
+  <meta
+    property="twitter:description"
+    content="My personal not-so-tech-related blog"
+  />
+
   <!-- Additional meta tags -->
   <meta name="author" content="Termin" />
 </svelte:head>

@@ -12,25 +12,27 @@
 <svelte:head>
   <title>Termin | My goals</title>
   <meta name="description" content="A developer, pentester and a student" />
-  <link rel="canonical" href="https://termin.is-a.dev/" />
+  <link rel="canonical" href="https://termin.is-a.dev/goals" />
   <link rel="stylesheet" href="/github-markdown.css" />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://termin.is-a.dev/" />
+  <meta property="og:url" content="https://termin.is-a.dev/goals" />
   <meta property="og:title" content="Termin | My goals" />
-  <meta property="og:description" content="A developer, pentester and a student" />
+  <meta
+    property="og:description"
+    content="A developer, pentester and a student"
+  />
   <meta property="og:site_name" content="Termin | My goals" />
-  <meta property="og:image" content="/favicon.png" />
-  <meta property="og:image:alt" content="Icon" />
-  
+
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:card" content="summary" />
   <meta property="twitter:title" content="Termin | My goals" />
-  <meta property="twitter:description" content="A developer, pentester and a student" />
-  <meta property="twitter:image" content="/favicon.png" />
-  <meta property="twitter:image:alt" content="Icon" />
-  
+  <meta
+    property="twitter:description"
+    content="A developer, pentester and a student"
+  />
+
   <!-- Additional meta tags -->
   <meta name="theme-color" content="#8593EC" />
   <meta name="author" content="Termin" />
