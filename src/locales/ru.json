@@ -17,6 +17,13 @@
         "link": "https://whatpeoplethinkof.me/",
         "src": "https://github.com/Termindev/WPTOM",
         "imgSrc": "/images/wptom.png"
+      },
+      {
+        "desc": "Мобильное приложение, которое превращает обучение в игру, позволяя установить систему рейтинга для каждого предмета и отслеживать свой прогресс.",
+        "name": "Study Forces",
+        "link": "https://github.com/Termindev/study-forces/releases/latest",
+        "src": "https://github.com/Termindev/study-forces",
+        "imgSrc": "/images/studyforces.jpg"
       }
     ],
     "title": "Проекты",
