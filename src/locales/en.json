@@ -18,12 +18,12 @@
         "src": "https://github.com/Termindev/WPTOM",
         "imgSrc": "/images/wptom.png"
       },
-	  {
+      {
         "desc": "A mobile app that gamifies studying by letting you set a rating system for each subject and track your progress.",
         "name": "Study Forces",
         "link": "https://github.com/Termindev/study-forces/releases/latest",
         "src": "https://github.com/Termindev/study-forces",
-        "imgSrc": "/images/studyforces.jpg"
+        "imgSrc": "/images/studyforces.png"
       }
     ],
     "title": "Projects",
