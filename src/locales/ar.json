@@ -71,6 +71,11 @@
         "name": "SmileyCTF",
         "honor": "أفضل 100",
         "img": "/images/smiley.png"
+      },
+      {
+        "name": "International Computer Science Competition",
+        "honor": "تأهلت للنهائيات",
+        "img": "/images/icsc.png"
       }
     ]
   },

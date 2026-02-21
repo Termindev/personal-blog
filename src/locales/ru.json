@@ -71,6 +71,11 @@
         "name": "SmileyCTF",
         "honor": "Топ-100",
         "img": "/images/smiley.png"
+      },
+      {
+        "name": "International Computer Science Competition",
+        "honor": "Финалист",
+        "img": "/images/icsc.png"
       }
     ]
   },
