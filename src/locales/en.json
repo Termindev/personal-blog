@@ -5,13 +5,6 @@
   "projects": {
     "projects": [
       {
-        "desc": "A website made as a guide to help people who want to apply to universities in Russia.",
-        "name": "Way To Russia",
-        "link": "https://waytoru.vercel.app/",
-        "src": "https://github.com/Termindev/WTR",
-        "imgSrc": "/images/waytoru.png"
-      },
-      {
         "desc": "A website that lets you SHOW others what people think of you",
         "name": "What People Think Of Me",
         "link": "https://whatpeoplethinkof.me/",
